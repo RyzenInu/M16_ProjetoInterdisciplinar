@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage_Main.master.cs" Inherits="M16_ProjetoInterdisciplinar.MasterPage_Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <style>
+        :root{
+            box-sizing: border-box;
+            font-family: Roboto, ubuntu, 'Segoe UI', sans-serif;
+        }
+
+        html, body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            display: flex;
+        }
+
+        #ContentPlaceHolder1{
+
+        }
+    </style>
+    <script>
+        window.onscroll = function () { scrollFunction() };
+        var headerHeight = document.getElementByTagName("header").clientHeader;
+
+        function scrollFunction() {
+
+        }
+    </script>
+</head>
+<body>
+    <header>
+
+    </header>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+    </asp:ContentPlaceHolder>
+</body>
+</html>
