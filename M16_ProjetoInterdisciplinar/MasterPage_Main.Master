@@ -24,28 +24,154 @@
         }
 
         body{
-            display: flex;
+
         }
 
-        #ContentPlaceHolder1{
 
+        /* <Header> and children proprieties */
+
+        header{
+            /* Size */
+            width: 100%;
+            height: 360px;
+
+            /* Background and color*/
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-image: url("/Imagens/header01.png");
+            background-position: 0 -360px;
+            background-size: cover;
+            background-repeat: repeat-y;
+            background-blend-mode: overlay;
+
+            /* Display */
+            display: flex;
+            flex-direction: row;
+            place-items: center;
+            justify-content: center;
+            overflow: hidden;
+
+            /* Other */
+            position: fixed;
+            transition: 0.15s ease-in-out;
+        }
+
+        header div{
+            height: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            place-items: center;
+            justify-content: center;
+        }
+
+        .header-section-left{
+            justify-content: left;
+        }
+        .header-section-middle{
+            justify-content: normal;
+            place-items: end;
+        }
+        .header-section-middle div{
+            height: 50px;
+            border-bottom: 4px solid white;
+            background-color: rgba(0, 0, 0, 0.45);
+        }
+        .navbar-item-wrapper{
+            flex: 1;
+            color: white;
+            text-decoration: none;
+            position: inherit;
+            display: inherit;
+        }
+        .header-section-middle div:hover{
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .header-section-right{
+            justify-content: right;
+            place-items: flex-end;
+            transition: max-width 0.15s ease-in-out;
+        }
+
+        header img{
+            height: fit-content;
+            max-height: 100%;
+            width: auto;
+            max-width: 100%;
+        }
+
+        /* <Main> and children proprieties */
+
+        main{
+            flex-grow: 1;
+            height: 100%;
+        }
+
+        #contentPlaceHolder-wrapper{
+            height: 100%;
+            width: 100%;
         }
     </style>
     <script>
         window.onscroll = function () { scrollFunction() };
-        var headerHeight = document.getElementByTagName("header").clientHeader;
+        var navbarItems = document.getElementsByClassName("navbar-item");
 
         function scrollFunction() {
-
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                document.getElementById("header").style.height = "70px";
+                document.getElementById("header").style.backgroundPosition = "0 -520px";
+                for (var i = 0; i < navbarItems.length; i++) {
+                    navbarItems[i].style.height = "70px";
+                }
+                document.getElementsByClassName("header-section-right")[0].style.maxWidth = "0%";
+            } else {
+                document.getElementById("header").style.height = "360px";
+                document.getElementById("header").style.backgroundPosition = "0 -360px";
+                for (var i = 0; i < navbarItems.length; i++) {
+                    navbarItems[i].style.height = "50px";
+                }
+                document.getElementsByClassName("header-section-right")[0].style.maxWidth = "100%";
+            }
         }
     </script>
 </head>
 <body>
-    <header>
+    <!-- MasterPage header for Home and login -->
+    <header id="header">
+        <div class="header-section-left">
+            <img src="Imagens/MSMS-Logo-White.png"/>
+        </div>
+        <div class="header-section-middle">
+            <a href="Home.aspx" class="navbar-item-wrapper">
+            <div class="navbar-item">
+                <span class="material-icons">home</span>Home</div>
+                </a>
 
+            <a href="Loja.aspx" class="navbar-item-wrapper">
+            <div class="navbar-item">
+                <span class="material-icons">store</span>Loja</div>
+                </a>
+
+            <a href="Contactos.aspx" class="navbar-item-wrapper">
+            <div class="navbar-item">
+                <span class="material-icons">phone</span>Contactos</div>
+                </a>
+
+            <a href="Login.aspx" class="navbar-item-wrapper">
+                <div class="navbar-item">
+                <span class="material-icons">login</span>Login</div>
+            </a>
+        </div>
+        <div class="header-section-right"></div>
     </header>
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-
-    </asp:ContentPlaceHolder>
+    
+    <!-- Web form with MasterPage content starts here -->
+    <main>
+        <div id="contentPlaceHolder-wrapper">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </main>
 </body>
 </html>
