@@ -33,6 +33,15 @@ namespace M16_ProjetoInterdisciplinar
         protected global::System.Web.UI.WebControls.TextBox txt_username;
 
         /// <summary>
+        /// Controle lbl_username.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_username;
+
+        /// <summary>
         /// Controle txt_password.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace M16_ProjetoInterdisciplinar
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_password;
+
+        /// <summary>
+        /// Controle lbl_password.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_password;
 
         /// <summary>
         /// Controle btn_login.

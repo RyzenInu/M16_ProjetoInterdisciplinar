@@ -22,6 +22,9 @@
         header{
             max-height: 70px;
         }
+        main{
+            padding-top: 70px !important;
+        }
         main, main div{
             display: flex;
             flex-direction: column;
@@ -42,11 +45,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
+
         <h2>Login</h2>
-        <asp:TextBox ID="txt_username" runat="server" width="90%"></asp:TextBox>
+
+        <asp:TextBox ID="txt_username" runat="server" width="90%" placeholder="nome"></asp:TextBox>
+        <asp:Label ID="lbl_username" runat="server"></asp:Label>
         &nbsp
-        <asp:TextBox ID="txt_password" runat="server" width="90%" TextMode="Password"></asp:TextBox>
+
+        <asp:TextBox ID="txt_password" runat="server" width="90%" TextMode="Password" placeholder="palavra-passe"></asp:TextBox>
+        <asp:Label ID="lbl_password" runat="server"></asp:Label>
         &nbsp
+
         <asp:Button ID="btn_login" runat="server" Text="Entrar" width="55%" OnClick="Button1_Click"/>
     </form>
 </asp:Content>

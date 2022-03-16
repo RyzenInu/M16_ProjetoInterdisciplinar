@@ -114,11 +114,11 @@
             flex-grow: 1;
             height: 100%;
             width: 100%;
-            padding-top: 70px;
+            padding-top: 360px;
         }
 
         #contentPlaceHolder-wrapper{
-            height: 2000px;
+            height: 100%;
             width: 100%;
         }
     </style>
@@ -134,6 +134,7 @@
                     navbarItems[i].style.height = "70px";
                 }
                 document.getElementsByClassName("header-section-right")[0].style.maxWidth = "0%";
+                document.getElementsByTagName("main").style.paddingTop = "70px";
             } else {
                 document.getElementById("header").style.height = "360px";
                 document.getElementById("header").style.backgroundPosition = "0 -360px";
@@ -141,6 +142,7 @@
                     navbarItems[i].style.height = "50px";
                 }
                 document.getElementsByClassName("header-section-right")[0].style.maxWidth = "100%";
+                document.getElementsByTagName("main").style.paddingTop = "360px";
             }
         }
     </script>

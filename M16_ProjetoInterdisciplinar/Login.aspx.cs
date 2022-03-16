@@ -24,6 +24,10 @@ namespace M16_ProjetoInterdisciplinar
             sqlCommand.CommandText = $"select * from m16projeto_tbl_login where username = '{txt_username.Text}'";
             sqlConnection.Open();
             sqlDR = sqlCommand.ExecuteReader();
+
+            lbl_password.Text = "";
+            lbl_username.Text = "";
+
             if (sqlDR.Read())
             {
                 if (txt_password.Text == sqlDR["password"].ToString())
@@ -43,6 +47,14 @@ namespace M16_ProjetoInterdisciplinar
                             break;
                     }
                 }
+                else
+                {
+                    lbl_password.Text = "Palavra-passe incorreta.";
+                }
+            }
+            else
+            {
+                lbl_username.Text = "Esse nome utilizador não existe.";
             }
         }
     }
