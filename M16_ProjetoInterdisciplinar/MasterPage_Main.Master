@@ -14,7 +14,7 @@
         :root{
             box-sizing: border-box;
             -moz-box-sizing: border-box;
-            font-family: Roboto, ubuntu, 'Segoe UI', sans-serif;
+            font-family: Roboto, 'Segoe UI', sans-serif;
         }
         *{
             box-sizing: border-box;
@@ -45,7 +45,7 @@
             background-color: rgba(0, 0, 0, 0.5);
             background-image: url("/Imagens/header01.png");
             background-position: 0 -360px;
-            background-size: cover;
+            background-size: auto;
             background-repeat: repeat-y;
             background-blend-mode: overlay;
 
@@ -60,6 +60,7 @@
             
             position: fixed;
             transition: 0.15s ease-in-out;
+            font-weight: bold;
         }
 
         header div{
@@ -115,11 +116,29 @@
             height: 100%;
             width: 100%;
             padding-top: 360px;
+            transition: all 0.15s ease-in-out;
         }
 
         #contentPlaceHolder-wrapper{
             height: 100%;
             width: 100%;
+        }
+
+        @media only screen and (max-width: 900px) {
+            header{
+                flex-direction: column;
+                justify-content: flex-end;
+                place-items: initial;
+            }
+            header div{
+                flex: 1;
+                height: auto;
+                max-height: fit-content;
+            }
+            .header-section-right{
+                max-height: 0;
+                height: 0;
+            }
         }
     </style>
     <script>
@@ -127,14 +146,14 @@
         var navbarItems = document.getElementsByClassName("navbar-item");
 
         function scrollFunction() {
-            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
                 document.getElementById("header").style.height = "70px";
                 document.getElementById("header").style.backgroundPosition = "0 -520px";
                 for (var i = 0; i < navbarItems.length; i++) {
                     navbarItems[i].style.height = "70px";
                 }
                 document.getElementsByClassName("header-section-right")[0].style.maxWidth = "0%";
-                document.getElementsByTagName("main").style.paddingTop = "70px";
+                document.getElementById("mainContainer").style.paddingTop = "160px";
             } else {
                 document.getElementById("header").style.height = "360px";
                 document.getElementById("header").style.backgroundPosition = "0 -360px";
@@ -142,7 +161,7 @@
                     navbarItems[i].style.height = "50px";
                 }
                 document.getElementsByClassName("header-section-right")[0].style.maxWidth = "100%";
-                document.getElementsByTagName("main").style.paddingTop = "360px";
+                document.getElementById("mainContainer").style.paddingTop = "360px";
             }
         }
     </script>
@@ -159,11 +178,6 @@
                 <span class="material-icons">home</span>Home</div>
                 </a>
 
-            <a href="Loja.aspx" class="navbar-item-wrapper">
-            <div class="navbar-item">
-                <span class="material-icons">store</span>Loja</div>
-                </a>
-
             <a href="Contactos.aspx" class="navbar-item-wrapper">
             <div class="navbar-item">
                 <span class="material-icons">phone</span>Contactos</div>
@@ -178,7 +192,7 @@
     </header>
     
     <!-- Web form with MasterPage content starts here -->
-    <main>
+    <main id="mainContainer">
         <div id="contentPlaceHolder-wrapper">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
         </div>

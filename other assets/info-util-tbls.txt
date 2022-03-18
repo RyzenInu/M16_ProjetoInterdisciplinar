@@ -1,0 +1,15 @@
+tbl_categoriasProduto do produto (codTipoProduto, nomeTipo)
+
+tbl_produto (codProduto, codTipoProduto, nomeProduto, preco, emStock)
+
+tbl_encomendas (numEncomenda, data, situacao, codCliente, dataEntrega)
+
+tbl_detalhes_encomendas (numEncomenda, codProduto, qtdProduto)
+
+tbl_carrinho (idCarrinho, codCliente, codProduto, qtdProduto) 
+
+----------------------------------------------------------------------------------------
+
+tbl_login (codLogin, username, pass, tipo) 
+
+tbl_cliente (codCliente, codLogin, nome, email, morada, nif, datadenascimento, sexo)

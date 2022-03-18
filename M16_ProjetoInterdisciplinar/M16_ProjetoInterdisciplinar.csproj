@@ -74,7 +74,6 @@
     <Content Include="Imagens\MSMS-Logo-Black.png" />
     <Content Include="Imagens\MSMS-Logo-White.png" />
     <Content Include="Login.aspx" />
-    <Content Include="Loja.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -98,13 +97,6 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Loja.aspx.cs">
-      <DependentUpon>Loja.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Loja.aspx.designer.cs">
-      <DependentUpon>Loja.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage_Main.Master.cs">
       <DependentUpon>MasterPage_Main.Master</DependentUpon>

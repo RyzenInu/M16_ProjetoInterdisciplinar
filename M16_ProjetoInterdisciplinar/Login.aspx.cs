@@ -28,33 +28,44 @@ namespace M16_ProjetoInterdisciplinar
             lbl_password.Text = "";
             lbl_username.Text = "";
 
-            if (sqlDR.Read())
+            if(txt_username.Text != "" && txt_password.Text != "")
             {
-                if (txt_password.Text == sqlDR["password"].ToString())
+                Response.Write($"<script>console.log('{txt_password.Text + txt_username.Text}')<script/>");
+                if (sqlDR.Read())
                 {
-                    int userType = Convert.ToInt32(sqlDR["type"]);
-
-                    switch (userType)
+                    if (txt_password.Text == sqlDR["password"].ToString())
                     {
-                        case 0:     //admin
-                            Response.Redirect("");
-                            break;
-                        case 1:     //funcionário
-                            Response.Redirect("");
-                            break;
-                        case 2:     //cliente
-                            Response.Redirect("Loja.aspx");
-                            break;
+                        int userType = Convert.ToInt32(sqlDR["type"]);
+
+                        switch (userType)
+                        {
+                            case 0:     //admin
+                                Response.Redirect("");
+                                break;
+                            case 1:     //funcionário
+                                Response.Redirect("");
+                                break;
+                            case 2:     //cliente
+                                Response.Redirect("Home.aspx");
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        lbl_password.Text = "Palavra-passe incorreta.";
+                        txt_password.Text = "";
                     }
                 }
                 else
                 {
-                    lbl_password.Text = "Palavra-passe incorreta.";
+                    lbl_username.Text = "Esse nome utilizador não existe.";
+                    txt_username.Text = "";
                 }
             }
             else
             {
-                lbl_username.Text = "Esse nome utilizador não existe.";
+                if (txt_password.Text == "") { lbl_password.Text = "*Campo obrigatório."; }
+                if (txt_username.Text == "") { lbl_username.Text = "*Campo obrigatório."; }
             }
         }
     }

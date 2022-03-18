@@ -5,10 +5,10 @@
             box-sizing: border-box;
         }
         #form1{
-            min-height: 300px;
-            min-width: 300px;
-            max-height: 100%;
-            max-width: 60%;
+            height: 50%;
+            width: 40%;
+            min-height: 200px;
+            min-width: 150px;
 
             display: flex;
             flex-direction: column;
@@ -18,6 +18,8 @@
 
             background-color: rgba(0, 0, 0, 0.30);
             border-radius: 15px;
+
+            overflow-y: auto;
         }
         header{
             max-height: 70px;

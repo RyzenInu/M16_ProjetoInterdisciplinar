@@ -1,6 +1,0 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_Main.Master" AutoEventWireup="true" CodeBehind="Loja.aspx.cs" Inherits="M16_ProjetoInterdisciplinar.Loja" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>Loja</h2>
-</asp:Content>
