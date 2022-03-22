@@ -50,11 +50,11 @@
 
         <h2>Login</h2>
 
-        <asp:TextBox ID="txt_username" runat="server" width="90%" placeholder="nome"></asp:TextBox>
+        <asp:TextBox ID="txt_username" runat="server" width="90%" placeholder="Nome"></asp:TextBox>
         <asp:Label ID="lbl_username" runat="server"></asp:Label>
         &nbsp
 
-        <asp:TextBox ID="txt_password" runat="server" width="90%" TextMode="Password" placeholder="palavra-passe"></asp:TextBox>
+        <asp:TextBox ID="txt_password" runat="server" width="90%" TextMode="Password" placeholder="Palavra-passe"></asp:TextBox>
         <asp:Label ID="lbl_password" runat="server"></asp:Label>
         &nbsp
 
