@@ -8,7 +8,7 @@ tbl_detalhes_encomendas (numEncomenda, codProduto, qtdProduto)
 
 tbl_carrinho (idCarrinho, codCliente, codProduto, qtdProduto) 
 
-----------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
 
 tbl_login (codLogin, username, pass, tipo) 
 

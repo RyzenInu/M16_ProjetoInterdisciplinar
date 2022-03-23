@@ -70,6 +70,7 @@
   <ItemGroup>
     <Content Include="Contactos.aspx" />
     <Content Include="Dashboard_GerirClientes.aspx" />
+    <Content Include="Dashboard_Main.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Imagens\header01.png" />
     <Content Include="Imagens\MSMS-Logo-Black.png" />
@@ -91,6 +92,13 @@
     </Compile>
     <Compile Include="Dashboard_GerirClientes.aspx.designer.cs">
       <DependentUpon>Dashboard_GerirClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard_Main.aspx.cs">
+      <DependentUpon>Dashboard_Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard_Main.aspx.designer.cs">
+      <DependentUpon>Dashboard_Main.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

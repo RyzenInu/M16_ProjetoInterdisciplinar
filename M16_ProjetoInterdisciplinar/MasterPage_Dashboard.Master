@@ -32,19 +32,19 @@
             background-color: rgb(22,22,22);
             display: flex;
             flex-direction: row;
+            color: white;
         }
 
         #sideBar{
             height: 100%;
-            width: 220px;
+            width: 230px;
             background-color: rgb(255,255,255, 0.05);
-            color: white;
             border-right: 1px solid rgba(255,255,255, 0.05);
             display: flex;
             flex-direction: column;
+            transition: all 0.15s ease-in-out;
         }
         #dashboardContent{
-            width: 80%;
             flex-grow: 1;
             height: 100%;
         }
@@ -59,11 +59,28 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            user-select: none;
         }
-        #dashboardToolList div{
+        #dashboardToolList a{
             height: 50px;
             width: 100%;
             border-bottom: 1px solid rgba(255,255,255, 0.05);
+            display: grid;
+            place-items: center;
+            text-decoration: none;
+            color: white;
+        }
+        #dashboardToolList a:hover{
+            background-color: rgb(255,255,255, 0.025);
+            cursor: pointer;
+        }
+        #dashboardToolList a:active{
+            background-color: rgb(255,255,255, 0.035);
+        }
+        #dashboardToolList a:last-child{
+            margin-top: auto;
+            border-top: 1px solid rgba(255,255,255, 0.05);
+            border-bottom: none;
         }
     </style>
 </head>
@@ -74,12 +91,21 @@
             <button>Logout</button>
         </div>
         <div id="dashboardToolList">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <a href="Dashboard_Main.aspx">
+                <div>Visão geral</div>
+            </a>
+            <a>
+                <div>Gerir Encomendas</div>
+            </a>
+            <a>
+                <div>Gerir Clientes</div>
+            </a>
+            <a>
+                <div>Gerir Produtos</div>
+            </a>
+            <a href="Home.aspx">
+                <div>Voltar</div>
+            </a>
         </div>
     </div>
     <div id="dashboardContent">

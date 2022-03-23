@@ -47,10 +47,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
-
-        <h2>Login</h2>
-
-        <asp:TextBox ID="txt_username" runat="server" width="90%" placeholder="Nome"></asp:TextBox>
+        <div id="formTitle">
+            <span class="material-icons">login</span>
+            <div>Login</div>
+        </div>
+        <asp:TextBox ID="txt_username" runat="server" width="90%" placeholder="Nome de utilizador"></asp:TextBox>
         <asp:Label ID="lbl_username" runat="server"></asp:Label>
         &nbsp
 

@@ -21,7 +21,7 @@ namespace M16_ProjetoInterdisciplinar
         protected void Button1_Click(object sender, EventArgs e)
         {
             sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandText = $"select * from m16projeto_tbl_login where username = '{txt_username.Text}'";
+            sqlCommand.CommandText = $"select * from m16proj_tbl_login where username = '{txt_username.Text}'";
             sqlConnection.Open();
             sqlDR = sqlCommand.ExecuteReader();
 
@@ -30,7 +30,6 @@ namespace M16_ProjetoInterdisciplinar
 
             if(txt_username.Text != "" && txt_password.Text != "")
             {
-                Response.Write($"<script>console.log('{txt_password.Text + txt_username.Text}')<script/>");
                 if (sqlDR.Read())
                 {
                     if (txt_password.Text == sqlDR["password"].ToString())
@@ -40,10 +39,10 @@ namespace M16_ProjetoInterdisciplinar
                         switch (userType)
                         {
                             case 0:     //admin
-                                Response.Redirect("");
+                                Response.Redirect("Dashboard_main.aspx");
                                 break;
                             case 1:     //funcionário
-                                Response.Redirect("");
+                                Response.Redirect("Dashboard_Main.aspx");
                                 break;
                             case 2:     //cliente
                                 Response.Redirect("Home.aspx");
@@ -54,18 +53,21 @@ namespace M16_ProjetoInterdisciplinar
                     {
                         lbl_password.Text = "Palavra-passe incorreta.";
                         txt_password.Text = "";
+                        txt_password.Focus();
                     }
                 }
                 else
                 {
                     lbl_username.Text = "Esse nome utilizador não existe.";
                     txt_username.Text = "";
+                    txt_username.Focus();
                 }
             }
             else
             {
                 if (txt_password.Text == "") { lbl_password.Text = "*Campo obrigatório."; }
                 if (txt_username.Text == "") { lbl_username.Text = "*Campo obrigatório."; }
+                txt_username.Focus();
             }
         }
     }
