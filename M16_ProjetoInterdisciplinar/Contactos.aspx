@@ -3,6 +3,9 @@
     <style>
 
     </style>
+    <script>
+        window.document.title = "Contactos";
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Contacto</h2>

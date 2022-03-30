@@ -185,7 +185,7 @@
 
             <a href="Login.aspx" class="navbar-item-wrapper">
                 <div class="navbar-item">
-                <span class="material-icons">login</span>Login</div>
+                <span class="material-icons">login</span>Entrar</div>
             </a>
         </div>
         <div class="header-section-right"></div>
