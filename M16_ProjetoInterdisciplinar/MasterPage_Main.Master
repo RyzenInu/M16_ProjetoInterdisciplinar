@@ -60,7 +60,7 @@
             
             position: fixed;
             transition: 0.15s ease-in-out;
-            font-weight: bold;
+            /*font-weight: bold;*/
         }
 
         header div{
@@ -94,6 +94,10 @@
         .header-section-middle div:hover{
             cursor: pointer;
             background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .navbar-item span{
+            
         }
 
         .header-section-right{
@@ -152,15 +156,15 @@
                 for (var i = 0; i < navbarItems.length; i++) {
                     navbarItems[i].style.height = "70px";
                 }
-                document.getElementsByClassName("header-section-right")[0].style.maxWidth = "0%";
-                document.getElementById("mainContainer").style.paddingTop = "160px";
+                /*document.getElementsByClassName("header-section-right")[0].style.maxWidth = "0%";*/
+                document.getElementById("mainContainer").style.paddingTop = "70px";
             } else {
                 document.getElementById("header").style.height = "360px";
                 document.getElementById("header").style.backgroundPosition = "0 -360px";
                 for (var i = 0; i < navbarItems.length; i++) {
                     navbarItems[i].style.height = "50px";
                 }
-                document.getElementsByClassName("header-section-right")[0].style.maxWidth = "100%";
+                /*document.getElementsByClassName("header-section-right")[0].style.maxWidth = "100%";*/
                 document.getElementById("mainContainer").style.paddingTop = "360px";
             }
         }

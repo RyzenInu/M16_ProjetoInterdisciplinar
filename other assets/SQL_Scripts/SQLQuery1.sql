@@ -20,3 +20,9 @@ create table m16proj_tbl_cliente(
 
 */
 
+create table m16proj_tbl_categoriasProduto(
+	codCategProduto int primary key identity(1, 1),
+	nomeCategoria nvarchar(80)
+);
+create table m16proj_tbl_produto
+

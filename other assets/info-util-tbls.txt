@@ -1,4 +1,4 @@
-tbl_categoriasProduto do produto (codTipoProduto, nomeTipo)
+tbl_categoriasProduto do produto (codCategoriaProduto, nomeCategoria)
 
 tbl_produto (codProduto, codTipoProduto, nomeProduto, preco, emStock)
 
