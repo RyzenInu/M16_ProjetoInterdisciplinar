@@ -141,6 +141,13 @@
 
         <div class="inputBox">
             <label>person</label>
+            <asp:TextBox ID="txt_name" runat="server" width="100%" placeholder="Primeiro e último nome"></asp:TextBox>
+        </div>
+        <asp:RequiredFieldValidator CssClass="aspVal" ID="ReqFieldVal_Name" runat="server" ErrorMessage="*Campo Obrigatório" ControlToValidate="txt_name"></asp:RequiredFieldValidator>
+        &nbsp
+
+        <div class="inputBox">
+            <label>person</label>
             <asp:TextBox ID="txt_username" runat="server" width="100%" placeholder="Nome de utilizador"></asp:TextBox>
         </div>
         <asp:RegularExpressionValidator CssClass="aspVal" ID="RegularExpression_Username" runat="server" ErrorMessage="*Mínimo de 3 e máximo de 20 caracteres" ControlToValidate="txt_username" ValidationExpression="^[a-zA-Z0-9\s]{3,20}$" Display="Dynamic" />

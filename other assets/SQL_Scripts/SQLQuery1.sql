@@ -24,5 +24,31 @@ create table m16proj_tbl_categoriasProduto(
 	codCategProduto int primary key identity(1, 1),
 	nomeCategoria nvarchar(80)
 );
-create table m16proj_tbl_produto
+create table m16proj_tbl_produtos(
+	codProduto int primary key identity(1, 1),
+	codCategProduto int foreign key references m16proj_tbl_categoriasProduto(codCategProduto),
+	nomeProduto nvarchar(80),
+	preco numeric,
+	stock int
+);
 
+create table m16proj_tbl_encomendas(
+	numEncomenda int primary key identity(1, 1),
+	dataEncomenda date,
+	situacao nvarchar(10),
+	codCliente int foreign key references m16proj_tbl_cliente(codCliente),
+	dataEntrega date
+);
+
+create table m16proj_tbl_detalhes_encomenda(
+	numEncomenda int foreign key references m16proj_tbl_encomendas(numEncomenda),
+	codProduto int foreign key references m16proj_tbl_produtos(codProduto),
+	qtdProduto int
+);
+
+create table m16proj_tbl_carrinho(
+	idCarrinho int primary key identity(1, 1),
+	codCliente int foreign key references m16proj_tbl_cliente(codCliente),
+	codProduto int foreign key references m16proj_tbl_produtos(codProduto),
+	qtdProduto int
+);

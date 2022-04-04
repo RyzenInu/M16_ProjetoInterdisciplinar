@@ -24,6 +24,24 @@ namespace M16_ProjetoInterdisciplinar
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Controle txt_name.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_name;
+
+        /// <summary>
+        /// Controle ReqFieldVal_Name.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqFieldVal_Name;
+
+        /// <summary>
         /// Controle txt_username.
         /// </summary>
         /// <remarks>
