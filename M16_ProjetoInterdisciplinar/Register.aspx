@@ -5,7 +5,7 @@
             box-sizing: border-box;
         }
         #form1{
-            height: 50%;
+            height: 60%;
             width: 30vw;
             min-height: 200px;
             min-width: 300px;

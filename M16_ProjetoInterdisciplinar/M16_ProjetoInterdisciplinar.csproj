@@ -69,8 +69,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Contactos.aspx" />
+    <Content Include="Dashboard_CriarProdutos.aspx" />
     <Content Include="Dashboard_GerirClientes.aspx" />
     <Content Include="Dashboard_GerirEncomendas.aspx" />
+    <Content Include="Dashboard_GerirProdutos.aspx" />
     <Content Include="Dashboard_Main.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Imagens\header01.png" />
@@ -88,6 +90,13 @@
     <Compile Include="Contactos.aspx.designer.cs">
       <DependentUpon>Contactos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard_CriarProdutos.aspx.cs">
+      <DependentUpon>Dashboard_CriarProdutos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard_CriarProdutos.aspx.designer.cs">
+      <DependentUpon>Dashboard_CriarProdutos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard_GerirClientes.aspx.cs">
       <DependentUpon>Dashboard_GerirClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -101,6 +110,13 @@
     </Compile>
     <Compile Include="Dashboard_GerirEncomendas.aspx.designer.cs">
       <DependentUpon>Dashboard_GerirEncomendas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard_GerirProdutos.aspx.cs">
+      <DependentUpon>Dashboard_GerirProdutos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard_GerirProdutos.aspx.designer.cs">
+      <DependentUpon>Dashboard_GerirProdutos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard_Main.aspx.cs">
       <DependentUpon>Dashboard_Main.aspx</DependentUpon>

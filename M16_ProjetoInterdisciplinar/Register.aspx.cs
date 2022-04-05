@@ -34,38 +34,58 @@ namespace M16_ProjetoInterdisciplinar
             sqlConnection.Open();
 
             //Verificar se o nome de utilizador já existe na base de dados
-            sqlCommandLogin.CommandText = $"select username, codLogin from m16proj_tbl_login where username = '{username}'";
+            sqlCommandLogin.CommandText = $"select username from m16proj_tbl_login where username = '{username}'";
 
             try
             {
                 sqlDR = sqlCommandLogin.ExecuteReader();
                 if (!sqlDR.Read()) //Se não existir...
                 {
-                    //NOT HERE RYZEN, NOT HERE //codLogin = sqlDR["codLogin"].ToString(); //Definir "codLogin"
-
                     //tbl_login
+                    sqlDR.Close();
+                    sqlCommandLogin.Dispose();
                     sqlCommandLogin.CommandText = "insert into m16proj_tbl_login(username, password, tipo) values(@username, @password, '2')";
                     
                     sqlCommandLogin.Parameters.AddWithValue("@username", username);
                     sqlCommandLogin.Parameters.AddWithValue("@password", password);
-                    
-
-                    //tbl_cliente
-                    sqlCommandCliente.CommandText = "insert into m16proj_tbl_cliente(codLogin, nome, email) values(@codLogin, @nome, @email)";
-
-                    sqlCommandCliente.Parameters.AddWithValue("@codLogin", codLogin);
-                    sqlCommandCliente.Parameters.AddWithValue("@nome", name);
-                    sqlCommandCliente.Parameters.AddWithValue("@email", email);
 
                     try
                     {
                         sqlCommandLogin.ExecuteNonQuery();
-                        sqlCommandCliente.ExecuteNonQuery();
-                        Response.Redirect("Home.aspx");
                     }
                     catch (Exception ex)
                     {
-                        Response.Write($"<script>alert('Não foi possível registar o utilizador. \nMensagem de erro: {ex.Message}')</script>");
+                        Response.Write($"<script>alert('Não foi possível criar o login. \nMensagem de erro: {ex.Message}')</script>");
+                    }
+
+                    sqlCommandCliente.CommandText = $"select codLogin from m16proj_tbl_login where username = '{username}'";
+                    sqlDR = sqlCommandCliente.ExecuteReader();
+                    if (sqlDR.Read())
+                    {
+                        codLogin = sqlDR["codLogin"].ToString();
+
+                        //tbl_cliente
+                        sqlDR.Close();
+                        sqlCommandLogin.Dispose();
+                        sqlCommandCliente.CommandText = "insert into m16proj_tbl_cliente(codLogin, nome, email) values(@codLogin, @nome, @email)";
+
+                        sqlCommandCliente.Parameters.AddWithValue("@codLogin", codLogin);
+                        sqlCommandCliente.Parameters.AddWithValue("@nome", name);
+                        sqlCommandCliente.Parameters.AddWithValue("@email", email);
+
+                        try
+                        {
+                            sqlCommandCliente.ExecuteNonQuery();
+                            Response.Redirect("Home.aspx");
+                        }
+                        catch (Exception ex)
+                        {
+                            Response.Write($"<script>alert('Não foi possível criar o login. \nMensagem de erro: {ex.Message}')</script>");
+                        }
+                    }
+                    else
+                    {
+                        Response.Write($"<script>alert('Não foi possível registar o cliente para este login.')</script>");
                     }
                 }
                 else //Se o nome existir...

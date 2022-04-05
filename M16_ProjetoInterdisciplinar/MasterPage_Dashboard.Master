@@ -77,10 +77,19 @@
         #dashboardToolList a:active{
             background-color: rgb(255,255,255, 0.035);
         }
-        #dashboardToolList a:last-child{
+        #dashboardToolList .navBtn:last-child{
             margin-top: auto;
             border-top: 1px solid rgba(255,255,255, 0.05);
             border-bottom: none;
+        }
+
+        .scrollMenu{
+            display: none;
+            background-color: rgb(0, 0, 0, 0.15);
+        }
+
+        .dropdownBtn:hover .scrollMenu{
+            display: block;
         }
     </style>
 </head>
@@ -91,19 +100,53 @@
             <button>Logout</button>
         </div>
         <div id="dashboardToolList">
-            <a href="Dashboard_Main.aspx">
+            <!--  -->
+            <a href="Dashboard_Main.aspx" class="navBtn">
                 <div>Visão geral</div>
             </a>
-            <a>
+
+            <!--  -->
+            <a href="Dashboard_GerirEncomendas.aspx" class="navBtn">
                 <div>Gerir Encomendas</div>
             </a>
-            <a>
-                <div>Gerir Clientes</div>
-            </a>
-            <a>
-                <div>Gerir Produtos</div>
-            </a>
-            <a href="Home.aspx">
+
+            <!--  -->
+            <div class="dropdownBtn navBtn">
+                <a href="Dashboard_GerirClientes.aspx">
+                    <div>
+                        Gerir Clientes
+                        <!--
+                        <span class="material-icons">keyboard_arrow_down</span>
+                        -->
+                    </div>
+                </a>
+                <div class="scrollMenu">
+                    <a href="Dashboard_CriarProdutos.aspx">
+                        <div>Alterar Clientes</div>
+                    </a>
+                    <a href="Dashboard_GerirProdutos.aspx">
+                        <div>Alterar Produtos</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- DropDownButton Produtos -->
+            <div class="dropdownBtn navBtn">
+                <a href="Dashboard_GerirProdutos.aspx">
+                    <div>Gerir Produtos</div>
+                </a>
+                <div class="scrollMenu">
+                    <a href="Dashboard_CriarProdutos.aspx">
+                        <div>Criar Produtos</div>
+                    </a>
+                    <a href="Dashboard_GerirProdutos.aspx">
+                        <div>Alterar Produtos</div>
+                    </a>
+                </div>
+            </div>
+
+            <!--  -->
+            <a href="Home.aspx" class="navBtn">
                 <div>Voltar</div>
             </a>
         </div>

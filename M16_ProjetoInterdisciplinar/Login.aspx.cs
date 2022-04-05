@@ -20,8 +20,10 @@ namespace M16_ProjetoInterdisciplinar
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            string username = txt_username.Text;
+
             sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandText = $"select * from m16proj_tbl_login where username = '{txt_username.Text}'";
+            sqlCommand.CommandText = $"select * from m16proj_tbl_login where username = '{username}'";
             sqlConnection.Open();
             sqlDR = sqlCommand.ExecuteReader();
 
@@ -34,7 +36,7 @@ namespace M16_ProjetoInterdisciplinar
                 {
                     if (txt_password.Text == sqlDR["password"].ToString())
                     {
-                        int userType = Convert.ToInt32(sqlDR["type"]);
+                        int userType = Convert.ToInt32(sqlDR["tipo"]);
 
                         switch (userType)
                         {
