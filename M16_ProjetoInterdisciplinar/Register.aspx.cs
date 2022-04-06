@@ -97,17 +97,6 @@ namespace M16_ProjetoInterdisciplinar
             {
                 Response.Write($"<script>alert('Não foi possível registar o utilizador. \nMensagem de erro: {ex.Message}')</script>");
             }
-            
-            /*try
-            {
-                sqlCommandLogin.ExecuteNonQuery();
-                sqlCommandCliente.ExecuteNonQuery();
-
-            }
-            catch (Exception ex)
-            {
-                Response.Write($"<script>alert('Não foi possível registar o utilizador. \nMensagem de erro: {ex.Message}')</script>");
-            }*/
         }
     }
 }
