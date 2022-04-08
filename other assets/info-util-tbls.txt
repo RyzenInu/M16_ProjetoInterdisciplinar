@@ -13,3 +13,9 @@ tbl_carrinho (idCarrinho, codCliente, codProduto, qtdProduto)
 tbl_login (codLogin, username, pass, tipo) 
 
 tbl_cliente (codCliente, codLogin, nome, email, morada, nif, datadenascimento, sexo)
+
+
+Adicionar
+
+sexo nos produtos
+valor total nas encomendas
