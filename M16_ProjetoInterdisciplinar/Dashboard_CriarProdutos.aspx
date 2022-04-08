@@ -122,14 +122,18 @@
         <span>Categorias</span>
         <div class="inputBox">
             <label>menu</label>
-            <asp:DropDownList CssClass="dropDownInputField inputField" ID="ddl_categ" runat="server" DataSourceID="SqlDataSource1" DataTextField="nomeCategoria" DataValueField="codCategProduto" AutoPostBack="True" Enabled="False"></asp:DropDownList>
+            <asp:DropDownList CssClass="dropDownInputField inputField" ID="ddl_categ" runat="server" DataSourceID="SqlDataSource1" DataTextField="nomeCategoria" DataValueField="codCategProduto" AutoPostBack="True" Enabled="True" OnSelectedIndexChanged="ddl_categ_SelectedIndexChanged"></asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:L2031ConnectionString %>" SelectCommand="SELECT [codCategProduto], [nomeCategoria] FROM [m16proj_tbl_categoriasProduto]"></asp:SqlDataSource>
         </div>
         &nbsp
         <div class="inputBox">
             <label>segment</label>
             <asp:DropDownList CssClass="dropDownInputField inputField" ID="ddl_subCateg" runat="server" DataSourceID="SQL_DataSource01" DataTextField="nomeSubCategoria" DataValueField="codSubCategProduto" AutoPostBack="True" OnSelectedIndexChanged="ddl_subCateg_SelectedIndexChanged"></asp:DropDownList>
-            <asp:SqlDataSource ID="SQL_DataSource01" runat="server" ConnectionString="<%$ ConnectionStrings:L2031ConnectionString %>" SelectCommand="SELECT [codSubCategProduto], [nomeSubCategoria] FROM [m16proj_tbl_subCategoriasProduto]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SQL_DataSource01" runat="server" ConnectionString="<%$ ConnectionStrings:L2031ConnectionString %>" SelectCommand="SELECT [codSubCategProduto], [nomeSubCategoria] FROM [m16proj_tbl_subCategoriasProduto] WHERE ([codCategProduto] = @codCategProduto)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="ddl_categ" Name="codCategProduto" PropertyName="SelectedValue" Type="Int32" />
+                </SelectParameters>
+            </asp:SqlDataSource>
         </div>
     </div>
     &nbsp

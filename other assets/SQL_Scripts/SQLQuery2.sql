@@ -1,10 +1,11 @@
-/*create table m16proj_tbl_subCategoriasProduto(
+create table m16proj_tbl_subCategoriasProduto(
 	codSubCategProduto int primary key identity(1, 1),
 	codCategProduto int foreign key references m16proj_tbl_categoriasProduto(codCategProduto),
 	nomeSubCategoria nvarchar(80)
 );
 
-alter table m16proj_tbl_produtos
+alter table m16proj_tbl_subCategoriasProduto
+drop column codCategProduto
 add codCategProduto int foreign key references m16proj_tbl_subCategoriasProduto(codSubCategProduto)
 
 /*inserir stuff*/
@@ -34,4 +35,4 @@ values
 
 select m16proj_tbl_categoriasProduto.nomeCategoria, m16proj_tbl_subCategoriasProduto.nomeSubCategoria 
 from m16proj_tbl_subCategoriasProduto 
-inner join m16proj_tbl_categoriasProduto on m16proj_tbl_subCategoriasProduto.codCategProduto = m16proj_tbl_categoriasProduto.codCategProduto*/
+inner join m16proj_tbl_categoriasProduto on m16proj_tbl_subCategoriasProduto.codCategProduto = m16proj_tbl_categoriasProduto.codCategProduto

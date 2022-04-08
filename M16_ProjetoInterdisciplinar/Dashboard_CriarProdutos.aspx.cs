@@ -10,7 +10,8 @@ namespace M16_ProjetoInterdisciplinar
 {
     public partial class Dashboard_CriarProdutos : System.Web.UI.Page
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Server=SQL-AULAS;DataBase=L2031;Trusted_Connection=True;");
+        
+        SqlConnection sqlConnection = new SqlConnection($@"Server=RYZENLAPTOP;DataBase=L2031;Trusted_Connection=True;");
         SqlCommand sqlCommand = new SqlCommand();
         SqlDataReader sqlDR;
         protected void Page_Load(object sender, EventArgs e)
@@ -28,11 +29,12 @@ namespace M16_ProjetoInterdisciplinar
             sqlCommand.Connection = sqlConnection;
             sqlConnection.Open();
 
-            sqlCommand.CommandText = "insert into m16proj_tbl_produtos";
+            sqlCommand.CommandText = "insert into m16proj_tbl_produtos() values()";
         }
 
         protected void ddl_subCateg_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*
             int codSubCateg = Convert.ToInt32(ddl_subCateg.SelectedValue);
             int codCateg;
 
@@ -54,6 +56,34 @@ namespace M16_ProjetoInterdisciplinar
             {
                 Response.Write($"<script>alert('Erro: {ex.Message}')</script>");
             }
+            */
+        }
+
+        protected void ddl_categ_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*
+            int codSubCateg;
+            int codCateg = Convert.ToInt32(ddl_categ.SelectedValue);
+
+            sqlCommand.Connection = sqlConnection;
+            sqlConnection.Open();
+
+            sqlCommand.CommandText = $"select codSubCategProduto from m16proj_tbl_SubCategoriasProduto where codCategProduto = '{codCateg}'";
+
+            try
+            {
+                sqlDR = sqlCommand.ExecuteReader();
+                if (sqlDR.Read())
+                {
+                    codSubCateg = Convert.ToInt32(sqlDR["codSubCategProduto"].ToString());
+                    ddl_subCateg.SelectedValue = codSubCateg.ToString();
+                }
+            } 
+            catch (Exception ex)
+            {
+                Response.Write($"<script>alert('Erro: {ex.Message}')</script>");
+            }
+            */
         }
     }
 }

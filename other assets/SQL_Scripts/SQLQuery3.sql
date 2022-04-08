@@ -1,0 +1,2 @@
+alter table m16proj_tbl_subCategoriasProduto
+add codCategProduto int foreign key references m16proj_tbl_categoriasProduto(codCategProduto)

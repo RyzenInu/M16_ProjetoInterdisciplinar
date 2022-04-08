@@ -10,7 +10,7 @@ namespace M16_ProjetoInterdisciplinar
 {
     public partial class Register : System.Web.UI.Page
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Server=SQL-AULAS;DataBase=L2031;Trusted_Connection=True;");
+        SqlConnection sqlConnection = new SqlConnection(@"Server=RYZENLAPTOP;DataBase=L2031;Trusted_Connection=True;");
         SqlCommand sqlCommandLogin = new SqlCommand();
         SqlCommand sqlCommandCliente = new SqlCommand();
         SqlDataReader sqlDR;

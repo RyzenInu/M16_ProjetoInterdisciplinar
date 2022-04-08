@@ -1,4 +1,3 @@
-/*
 
 create table m16proj_tbl_login(
 	codLogin int primary key identity(1, 1),
@@ -17,8 +16,6 @@ create table m16proj_tbl_cliente(
 	dataNascimento date,
 	sexo varchar(1)
 );
-
-*/
 
 create table m16proj_tbl_categoriasProduto(
 	codCategProduto int primary key identity(1, 1),
