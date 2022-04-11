@@ -46,8 +46,15 @@
             cursor: pointer;
         }
 
+        body{
+            overflow: hidden;
+        }
+
         header{
-            max-height: 70px;
+            max-height: 60px;
+        }
+        header #headerTop{
+            display: none;
         }
 
         main{
@@ -117,8 +124,8 @@
     <script>
         window.document.title = "Registo";
         onload = function () {
-            header.style.position = "fixed";
             document.getElementById("header").classList.add("headerstuff");
+            header.style.position = "fixed";
             header.style.height = "60px";
         }
     </script>

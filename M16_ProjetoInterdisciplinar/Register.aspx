@@ -46,8 +46,15 @@
             cursor: pointer;
         }
 
+        body{
+            overflow: hidden;
+        }
+
         header{
-            max-height: 70px;
+            max-height: 60px;
+        }
+        header #headerTop{
+            display: none;
         }
 
         main{
