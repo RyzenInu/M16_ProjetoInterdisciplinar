@@ -19,7 +19,7 @@
             /*background-color: rgba(0, 0, 0, 0.30);*/
             border-radius: 15px;
 
-            overflow-y: auto;
+            overflow-y: visible;
         }
         @media only screen and (max-width: 900px) {
             #form1{}
@@ -32,9 +32,6 @@
             height: 30px;
             width: 100%;
             color: white;
-        }
-        .inputBox select option{
-            color: initial;
         }
 
         .inputField:focus{
@@ -74,9 +71,10 @@
         }
         
         .dropDownInputField{
+            background-color: rgb(22, 22, 22);
             width: 100%;
-            background-color: rgb(22,22,22);
-            color: white;
+        }
+        .dropDownInputField option{
         } 
 
         .dropDownInputField:hover{
@@ -102,12 +100,11 @@
             position: relative;
             display: block;
             float: left;
-            top: -20px;
+            top: 0px;
             padding: 0px 3px;
             place-self: flex-start;
             background-color: rgb(22,22,22);
             color: rgba(255,255,255, 0.50);
-            margin-bottom: -1rem;
         }
     </style>
 </asp:Content>
@@ -118,14 +115,22 @@
         <asp:TextBox ID="txt_nomeProd" runat="server" placeholder="Nome do produto" CssClass="inputField"></asp:TextBox>
     </div>
     &nbsp
+
+    <div class="inputBox">
+        <label>straighten</label>
+        <asp:TextBox ID="txt_tamanho" runat="server" placeholder="Tamanho" CssClass="inputField"></asp:TextBox>
+    </div>
+    &nbsp
+
     <div id="categContainer">
-        <span>Categorias</span>
+        <span>Categoria</span>
         <div class="inputBox">
             <label>menu</label>
             <asp:DropDownList CssClass="dropDownInputField inputField" ID="ddl_categ" runat="server" DataSourceID="SqlDataSource1" DataTextField="nomeCategoria" DataValueField="codCategProduto" AutoPostBack="True" Enabled="True" OnSelectedIndexChanged="ddl_categ_SelectedIndexChanged"></asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:L2031ConnectionString %>" SelectCommand="SELECT [codCategProduto], [nomeCategoria] FROM [m16proj_tbl_categoriasProduto]"></asp:SqlDataSource>
         </div>
         &nbsp
+        <span>Sub-categoria</span>
         <div class="inputBox">
             <label>segment</label>
             <asp:DropDownList CssClass="dropDownInputField inputField" ID="ddl_subCateg" runat="server" DataSourceID="SQL_DataSource01" DataTextField="nomeSubCategoria" DataValueField="codSubCategProduto" AutoPostBack="True" OnSelectedIndexChanged="ddl_subCateg_SelectedIndexChanged"></asp:DropDownList>

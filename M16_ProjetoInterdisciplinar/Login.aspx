@@ -57,7 +57,7 @@
         main, main div{
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            place-content: center;
         }
 
         /*TEST*/
@@ -107,11 +107,14 @@
             height: 0;
             overflow: visible;
         }
+        #contentPlaceHolder-wrapper{
+            place-items: center;
+        }
     </style>
     <script>
         window.document.title = "Login";
         onload = function () {
-            
+            document.getElementById("header").style.position = "fixed";
             //document.getElementById("header").style.height = "70px";
             document.getElementById("header").style.backgroundPosition = "0 -520px";
             for (var i = 0; i < navbarItems.length; i++) {

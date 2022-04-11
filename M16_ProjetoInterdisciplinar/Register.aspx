@@ -118,11 +118,14 @@
         .regExpPass{
             height: fit-content !important;
         }
+        #contentPlaceHolder-wrapper{
+            place-items: center;
+        }
     </style>
     <script>
         window.document.title = "Registo";
         onload = function () {
-            
+            document.getElementById("header").style.position = "fixed";
             //document.getElementById("header").style.height = "70px";
             document.getElementById("header").style.backgroundPosition = "0 -520px";
             for (var i = 0; i < navbarItems.length; i++) {

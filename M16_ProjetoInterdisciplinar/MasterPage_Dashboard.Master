@@ -86,12 +86,14 @@
         }
 
         .scrollMenu{
-            display: none;
+            max-height: 0px;
             background-color: rgb(0, 0, 0, 0.15);
+            transition: all 0.15s ease-in-out;
+            overflow: hidden;
         }
 
         .dropdownBtn:hover .scrollMenu{
-            display: block;
+            max-height: 300px;
         }
     </style>
 </head>
@@ -139,7 +141,7 @@
                 </a>
                 <div class="scrollMenu">
                     <a href="Dashboard_CriarProdutos.aspx">
-                        <div>Criar Produtos</div>
+                        <div>Inserir Produtos</div>
                     </a>
                     <a href="Dashboard_GerirProdutos.aspx">
                         <div>Alterar Produtos</div>
