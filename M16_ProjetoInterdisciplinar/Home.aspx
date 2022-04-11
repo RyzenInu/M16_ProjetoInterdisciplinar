@@ -4,9 +4,15 @@
         :root{
             box-sizing: border-box;
         }
+        body, html{
+            scroll-snap-type: y mandatory;
+        }
         .contentContainerPanel{
+            /* Sizing properties */
             width: 90%;
-            height: 600px;
+            height: 70vh;
+
+            /* Some other properties */
             display: flex;
             flex-direction: row;
             border-radius: 20px;
@@ -14,7 +20,11 @@
             place-self: center;
             overflow: hidden;
             text-align: justify;
-            margin: 80px 0px;
+            margin: 15vh 0px;
+
+            /* Scroll snap properties */
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
         }
         .contentContainerPanel div{
             height: 100%;
