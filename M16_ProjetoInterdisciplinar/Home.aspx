@@ -1,15 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_Main.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="M16_ProjetoInterdisciplinar.Home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        :root{
-            box-sizing: border-box;
-        }
-        body, html{
-            scroll-snap-type: y mandatory;
-        }
         .contentContainerPanel{
             /* Sizing properties */
             width: 90%;
+            min-height: 300px;
             height: 70vh;
 
             /* Some other properties */
@@ -24,11 +19,10 @@
 
             /* Scroll snap properties */
             scroll-snap-align: center;
-            scroll-snap-stop: always;
         }
         .contentContainerPanel div{
             height: 100%;
-            max-width: 50%;
+            min-width: 50%;
             flex: 1;
         }
         .contentContainerPanel .contentText{
@@ -41,7 +35,7 @@
             overflow: hidden;
         }
         .contentContainerPanel .contentImage img {
-            height: 100%;        
+            min-height: 100%;
         }
     </style>
     <script>
@@ -51,11 +45,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="contentContainerPanel">
         <div class="contentText">
-            <h1>O nosso objetivo</h1>
-            <p>Com a utilização de materiais como a cortiça, podemos diminuir a pegada ambiental da produção de outros materiais que são usados no vestuário, algo que é produzido em massa para toda a população do nosso planeta.</p>
+            <h1>Quem somos?</h1>
+            <p>A MS-Materiais Sustentáveis é uma empresa de produção de vestuário, calçado e acessórios com materiais reciclavéis, maioritariamente a <b>cortiça</b>.</p>
         </div>
         <div class="contentImage">
-            <img src="https://www.visitevora.net/wp-content/uploads/2014/01/artesanato-evora-alentejo-cortica.jpg"/>
+            <img src="https://agriculturaemar.com/wp-content/uploads/2015/10/rolhas-01.jpg"/>
         </div>
     </div>
     <div class="contentContainerPanel">
@@ -65,6 +59,13 @@
         <div class="contentText">
             <h1>O nosso objetivo</h1>
             <p>Com a utilização de materiais como a cortiça, podemos diminuir a pegada ambiental da produção de outros materiais que são usados no vestuário, algo que é produzido em massa para toda a população do nosso planeta.</p>
+        </div>
+    </div>
+    <div class="contentContainerPanel" id="contactos">
+        <div class="contentText">
+            <h1>Como nos contactar?</h1>
+            <p>E-mail: ms-materiassustentaveis.business@gmail.com</p>
+            <p>Telefone: 21 654 3256</p>
         </div>
     </div>
 </asp:Content>

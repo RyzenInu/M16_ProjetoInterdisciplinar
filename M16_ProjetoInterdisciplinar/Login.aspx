@@ -110,17 +110,16 @@
         #contentPlaceHolder-wrapper{
             place-items: center;
         }
+        .headerstuff #headerTop{
+            display: none;
+        }
     </style>
     <script>
-        window.document.title = "Login";
+        window.document.title = "Registo";
         onload = function () {
-            document.getElementById("header").style.position = "fixed";
-            //document.getElementById("header").style.height = "70px";
-            document.getElementById("header").style.backgroundPosition = "0 -520px";
-            for (var i = 0; i < navbarItems.length; i++) {
-                navbarItems[i].style.height = "70px";
-            }
-           /* document.getElementsByClassName("header-section-right")[0].style.maxWidth = "0%";*/
+            header.style.position = "fixed";
+            document.getElementById("header").classList.add("headerstuff");
+            header.style.height = "60px";
         }
     </script>
 </asp:Content>

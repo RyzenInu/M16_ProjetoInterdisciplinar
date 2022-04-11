@@ -66,7 +66,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Contactos.aspx" />
     <Content Include="Dashboard_CriarProdutos.aspx" />
     <Content Include="Dashboard_GerirClientes.aspx" />
     <Content Include="Dashboard_GerirEncomendas.aspx" />
@@ -82,13 +81,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contactos.aspx.cs">
-      <DependentUpon>Contactos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contactos.aspx.designer.cs">
-      <DependentUpon>Contactos.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Dashboard_CriarProdutos.aspx.cs">
       <DependentUpon>Dashboard_CriarProdutos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
