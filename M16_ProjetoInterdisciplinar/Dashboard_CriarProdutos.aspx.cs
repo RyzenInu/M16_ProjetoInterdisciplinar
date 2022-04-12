@@ -22,6 +22,8 @@ namespace M16_ProjetoInterdisciplinar
         protected void btn_register_Click(object sender, EventArgs e)
         {
             string name = txt_nomeProd.Text;
+            string img = "";
+            string tamanho = txt_tamanho.Text;
             int preco = Convert.ToInt32(txt_preco.Text);
             int stock = Convert.ToInt32(txt_stock.Text);
             int subCateg = Convert.ToInt32(ddl_subCateg.SelectedValue);

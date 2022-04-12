@@ -122,6 +122,12 @@
     </div>
     &nbsp
 
+    <div class="inputBox">
+        <label>photo</label>
+        <input id="file_imagem" type="file" />
+    </div>
+    &nbsp
+
     <div id="categContainer">
         <span>Categoria</span>
         <div class="inputBox">
