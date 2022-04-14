@@ -15,7 +15,40 @@ namespace M16_ProjetoInterdisciplinar
         SqlDataReader sqlDR;
         protected void Page_Load(object sender, EventArgs e)
         {
+            FillPage();
+        }
+        private void FillPage()
+        {
+            sqlCommand.Connection = sqlConnection;
+            sqlConnection.Open();
 
+            sqlCommand.CommandText = "select * from m16proj_tbl_produtos order by codSubCategProduto";
+            sqlDR = sqlCommand.ExecuteReader();
+            while (sqlDR.Read())
+            {
+                Panel productPanel = new Panel();
+                ImageButton imageButton = new ImageButton();
+                Label lblName = new Label();
+                Label lblPrice = new Label();
+
+                imageButton.ImageUrl = "~/Imagens/" + sqlDR["imagem"];
+                imageButton.CssClass = "productImage";
+                imageButton.PostBackUrl = "";
+                
+                lblName.Text = sqlDR["nomeProduto"].ToString();
+                lblName.CssClass = "productName";
+
+                lblPrice.Text = sqlDR["preco"].ToString() + "€";
+                lblPrice.CssClass = "productPrice";
+
+                productPanel.CssClass = "productPanel";
+                productPanel.Controls.Add(imageButton);
+                productPanel.Controls.Add(lblName);
+                productPanel.Controls.Add(lblPrice);
+
+
+                Panel1.Controls.Add(productPanel);
+            }
         }
     }
 }

@@ -24,6 +24,15 @@ namespace M16_ProjetoInterdisciplinar
         protected global::System.Web.UI.WebControls.TextBox txt_nomeProd;
 
         /// <summary>
+        /// ReqFieldVal_nome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqFieldVal_nome;
+
+        /// <summary>
         /// txt_tamanho control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,42 @@ namespace M16_ProjetoInterdisciplinar
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_tamanho;
+
+        /// <summary>
+        /// FileUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+
+        /// <summary>
+        /// ReqFieldVal_img control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqFieldVal_img;
+
+        /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
         /// ddl_categ control.
@@ -78,6 +123,15 @@ namespace M16_ProjetoInterdisciplinar
         protected global::System.Web.UI.WebControls.TextBox txt_preco;
 
         /// <summary>
+        /// ReqFieldVal_preco control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqFieldVal_preco;
+
+        /// <summary>
         /// txt_stock control.
         /// </summary>
         /// <remarks>
@@ -85,6 +139,15 @@ namespace M16_ProjetoInterdisciplinar
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_stock;
+
+        /// <summary>
+        /// ReqFieldVal_stock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqFieldVal_stock;
 
         /// <summary>
         /// btn_register control.

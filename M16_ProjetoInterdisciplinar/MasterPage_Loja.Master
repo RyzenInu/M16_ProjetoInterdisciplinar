@@ -1,0 +1,153 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage_Loja.master.cs" Inherits="M16_ProjetoInterdisciplinar.MasterPage_Loja" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <style>
+        :root{
+            box-sizing: border-box!important;
+            -moz-box-sizing: border-box;
+            font-family: Roboto, 'Segoe UI', sans-serif;
+            scroll-behavior: smooth!important;
+        }
+        *{
+            box-sizing: border-box!important;
+            -moz-box-sizing: border-box;
+        }
+
+        html, body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            scroll-snap-type: y mandatory;
+        }
+
+        body{
+            background-color: rgba(0, 0, 0, 0.10);
+        }
+
+        header{
+            /* Size */
+            width: 100%;
+            height: 70px;
+
+            /* Background and color*/
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-image: url("/Imagens/header01.png");
+            background-position: 0px -560px;
+            background-size: cover;
+            background-repeat: repeat-y;
+            background-blend-mode: overlay;
+
+            /* Display */
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            /* Other */
+        }
+
+        header img{
+            max-height: 100%;
+            height: 100%;
+        }
+
+        #header_logo{
+            max-height: 100%;
+            height: 100%;
+        }
+
+        #home{
+            display: grid;
+            place-items: center;
+            user-select: none;
+            transition: all 0.15s ease-in-out;
+            margin: 8px;
+            border-radius: 35px;
+            padding: 15px;
+        }
+
+        #home:hover{
+            cursor: pointer;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        #homeBtnContainer{
+            display: block;
+            min-width: fit-content;
+            min-height: fit-content;
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* <Main> and children proprieties */
+
+        #mainContainer{
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            height: 100%;
+            width: 100%;
+            transition: all 0.15s ease-in-out;
+        }
+
+        #contentPlaceHolder-wrapper{
+            min-height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            place-content: center;
+            transition: all 0.15s ease-in-out;
+        }
+
+        #form1{
+            display: flex;
+            flex-direction: column;
+            place-items: center;
+        }
+        #filters{
+            min-width: 300px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <a id="homeBtnContainer" href="Home.aspx">
+            <div id="home">
+                <span class="material-icons">home</span>
+            </div>
+        </a>
+        <div id="header_logo">
+            <img src="Imagens/MSMS-Logo-White.png"/>
+        </div>
+    </header>
+    
+    <!-- Web form with MasterPage content starts here -->
+    <main id="mainContainer">
+        <div id="filters">
+
+        </div>
+        <div id="contentPlaceHolder-wrapper">
+            <form id="form1" runat="server">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+                </asp:ContentPlaceHolder>
+            </form>
+        </div>
+    </main>
+</body>
+    <script>
+
+    </script>
+</html>
+

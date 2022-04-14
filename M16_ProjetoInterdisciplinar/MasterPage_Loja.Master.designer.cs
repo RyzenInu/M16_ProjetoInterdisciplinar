@@ -11,52 +11,34 @@ namespace M16_ProjetoInterdisciplinar
 {
 
 
-    public partial class Login
+    public partial class MasterPage_Loja
     {
 
         /// <summary>
-        /// txt_username control.
+        /// head control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_username;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
 
         /// <summary>
-        /// lbl_username control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_username;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txt_password control.
+        /// ContentPlaceHolder1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_password;
-
-        /// <summary>
-        /// lbl_password control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_password;
-
-        /// <summary>
-        /// btn_login control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_login;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
     }
 }

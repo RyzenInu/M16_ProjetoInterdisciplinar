@@ -142,7 +142,6 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
         <div id="formTitle">
             Registo
             <a href="Login.aspx">Já tem conta? Entre aqui</a>
@@ -191,5 +190,4 @@
         &nbsp
 
         <asp:Button ID="btn_register" runat="server" Text="Registar" width="90%" OnClick="btn_register_Click"/>
-    </form>
 </asp:Content>

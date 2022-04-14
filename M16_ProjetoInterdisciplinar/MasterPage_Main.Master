@@ -130,6 +130,13 @@
             place-content: center;
             transition: all 0.15s ease-in-out;
         }
+
+        #form1{
+            display: flex;
+            flex-direction: column;
+            place-items: center;
+        }
+
         /*
             .sticky #headerTop{
             height: 0;
@@ -141,6 +148,27 @@
             top: 0;
         }
         */
+
+        #scrollTop{
+            position: fixed;
+            float: right;
+            right: 20px;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: #222222;
+            color: white;
+
+            display: grid;
+            place-content: center;
+            place-items: center;
+            user-select: none;
+            cursor: pointer;
+
+            transition: opacity 0.10s ease-in-out;
+            opacity: 0%;
+        }
     </style>
 </head>
 <body>
@@ -187,11 +215,35 @@
     <!-- Web form with MasterPage content starts here -->
     <main id="mainContainer">
         <div id="contentPlaceHolder-wrapper">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            <form id="form1" runat="server">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </form>
         </div>
     </main>
+    <div id="scrollTop">
+        <a class="material-icons" onclick="topFunction()">
+            expand_less
+        </a>
+    </div>
 </body>
     <script>
+        var mybutton = document.getElementById("scrollTop");
+
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.opacity = "100%";
+            } else {
+                mybutton.style.opacity = "0%";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
         /*
         window.onscroll = function () { scrollFunction() };
         window.onload = loadVars();
