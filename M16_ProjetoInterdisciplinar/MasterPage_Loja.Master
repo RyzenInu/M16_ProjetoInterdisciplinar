@@ -64,6 +64,7 @@
         #header_logo{
             max-height: 100%;
             height: 100%;
+            align-self: center;
         }
 
         #home{
@@ -84,9 +85,27 @@
         #homeBtnContainer{
             display: block;
             min-width: fit-content;
-            min-height: fit-content;
+            min-height: 100%;
             color: white;
             text-decoration: none;
+        }
+
+        #cartBtnContainer{
+            display: flex;
+            flex-direction: row;
+            place-items: center;
+            color: white;
+            text-decoration: none;
+            height: fit-content;
+            width: fit-content;
+            border-radius: 30px 30px 30px 30px;
+            margin: 15px;
+            padding: 15px;
+            transition: all 0.15s ease-in-out;
+        }
+
+        #cartBtnContainer:hover{
+            background-color: rgba(0,0,0,0.7);
         }
         
         /* <Main> and children proprieties */
@@ -123,13 +142,15 @@
 <body>
     <header id="header">
         <a id="homeBtnContainer" href="Home.aspx">
-            <div id="home">
-                <span class="material-icons">home</span>
-            </div>
+            <span id="home" class="material-icons">home</span>
         </a>
         <div id="header_logo">
             <img src="Imagens/MSMS-Logo-White.png"/>
         </div>
+        <a id="cartBtnContainer" href="Home.aspx">
+            <span id="price">0.00€</span>
+            <span id="cart" class="material-icons">shopping_cart</span>
+        </a>
     </header>
     
     <!-- Web form with MasterPage content starts here -->

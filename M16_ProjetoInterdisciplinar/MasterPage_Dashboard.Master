@@ -115,24 +115,9 @@
             </a>
 
             <!--  -->
-            <div class="dropdownBtn navBtn">
-                <a href="Dashboard_GerirClientes.aspx">
-                    <div>
-                        Gerir Clientes
-                        <!--
-                        <span class="material-icons">keyboard_arrow_down</span>
-                        -->
-                    </div>
-                </a>
-                <div class="scrollMenu">
-                    <a href="Dashboard_CriarProdutos.aspx">
-                        <div>Alterar Clientes</div>
-                    </a>
-                    <a href="Dashboard_GerirProdutos.aspx">
-                        <div>Alterar Produtos</div>
-                    </a>
-                </div>
-            </div>
+            <a href="Dashboard_GerirClientes.aspx">
+                <div>Gerir Clientes</div>
+            </a>
 
             <!-- DropDownButton Produtos -->
             <div class="dropdownBtn navBtn">
