@@ -15,6 +15,7 @@ namespace M16_ProjetoInterdisciplinar
         SqlDataReader sqlDR;
         protected void Page_Load(object sender, EventArgs e)
         {
+            AdicionarFiltros();
             AdicionarProdutos();
         }
         private void AdicionarProdutos()
@@ -33,7 +34,7 @@ namespace M16_ProjetoInterdisciplinar
 
                 imageButton.ImageUrl = "~/Imagens/" + sqlDR["imagem"];
                 imageButton.CssClass = "productImage";
-                imageButton.PostBackUrl = "";
+                imageButton.PostBackUrl = $"~/Loja_DetalhesProduto.aspx?codProduto={sqlDR["codProduto"]}";
                 
                 lblName.Text = sqlDR["nomeProduto"].ToString();
                 lblName.CssClass = "productName";
@@ -49,6 +50,27 @@ namespace M16_ProjetoInterdisciplinar
 
                 Panel1.Controls.Add(productPanel);
             }
+            sqlConnection.Close();
+        }
+        private void AdicionarFiltros()
+        {
+            /*
+            sqlCommand.Connection = sqlConnection;
+            sqlConnection.Open();
+
+            sqlCommand.CommandText = "select * from m16proj_tbl_categoriasProduto";
+            sqlDR = sqlCommand.ExecuteReader();
+            while (sqlDR.Read())
+            {
+                LinkButton linkButton = new LinkButton();
+
+                linkButton.Text = sqlDR["nomeCategoria"].ToString();
+                linkButton.OnClientClick = ;
+
+                filters.Controls.Add(linkButton);
+            }
+            sqlConnection.Close();
+            */
         }
     }
 }

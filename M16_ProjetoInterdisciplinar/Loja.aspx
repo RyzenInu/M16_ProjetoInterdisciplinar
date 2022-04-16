@@ -59,20 +59,16 @@
             min-width: 300px;
             background-color: rgba(0, 0, 0, 0.15);
             min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="filters">
-        <!-- Ordenar por: -->
-        <asp:DropDownList ID="ddl_Orderby" runat="server"></asp:DropDownList>
-        <!-- Categoria: -->
-        <asp:DropDownList ID="ddl_Categoria" runat="server"></asp:DropDownList>
-        <!-- Sub-categoria: -->
-        <asp:DropDownList ID="ddl_subCategoria" runat="server"></asp:DropDownList>
-        <!-- Preco: -->
-        <input type="range" id="rangePrice" min="0" max="300"/> <!-- temporary max value of 300. need to pull/source it from database -->
-    </div>
+    <!--<div id="filters" runat="server">
+
+    </div>-->
     <asp:Panel ID="Panel1" runat="server">
 
     </asp:Panel>

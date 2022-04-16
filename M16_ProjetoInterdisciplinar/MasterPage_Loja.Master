@@ -65,6 +65,7 @@
             max-height: 100%;
             height: 100%;
             align-self: center;
+            flex-grow: 1;
         }
 
         #home{
@@ -144,7 +145,7 @@
         <div id="header_logo">
             <img src="Imagens/MSMS-Logo-White.png"/>
         </div>
-        <a id="cartBtnContainer" href="Home.aspx">
+        <a id="cartBtnContainer" href="Loja_Carrinho.aspx">
             <span id="price">0.00€</span>
             <span id="cart" class="material-icons">shopping_cart</span>
         </a>
