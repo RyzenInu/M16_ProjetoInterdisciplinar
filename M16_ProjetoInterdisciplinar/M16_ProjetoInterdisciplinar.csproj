@@ -77,6 +77,8 @@
     <Content Include="Imagens\MSMS-Logo-White.png" />
     <Content Include="Login.aspx" />
     <Content Include="Loja.aspx" />
+    <Content Include="Loja_Carrinho.aspx" />
+    <Content Include="Loja_DetalhesProduto.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -136,6 +138,20 @@
     </Compile>
     <Compile Include="Loja.aspx.designer.cs">
       <DependentUpon>Loja.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Loja_Carrinho.aspx.cs">
+      <DependentUpon>Loja_Carrinho.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loja_Carrinho.aspx.designer.cs">
+      <DependentUpon>Loja_Carrinho.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Loja_DetalhesProduto.aspx.cs">
+      <DependentUpon>Loja_DetalhesProduto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loja_DetalhesProduto.aspx.designer.cs">
+      <DependentUpon>Loja_DetalhesProduto.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage_Dashboard.Master.cs">
       <DependentUpon>MasterPage_Dashboard.Master</DependentUpon>

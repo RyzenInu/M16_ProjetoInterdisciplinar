@@ -15,9 +15,9 @@ namespace M16_ProjetoInterdisciplinar
         SqlDataReader sqlDR;
         protected void Page_Load(object sender, EventArgs e)
         {
-            FillPage();
+            AdicionarProdutos();
         }
-        private void FillPage()
+        private void AdicionarProdutos()
         {
             sqlCommand.Connection = sqlConnection;
             sqlConnection.Open();

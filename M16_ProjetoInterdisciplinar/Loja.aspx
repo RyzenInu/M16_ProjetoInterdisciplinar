@@ -17,10 +17,12 @@
             flex-flow: wrap;
             width: 100%;
             justify-content: space-evenly;
+            max-height: 100%;
         }
 
         .productImage{
-            max-height: 300px;
+            max-height: 40vh;
+            max-width: 40vh;
             border-radius: 10px;
         }
 
@@ -53,9 +55,24 @@
         .productPanel:hover{
             transform: scale(1.025);
         }
+        #filters{
+            min-width: 300px;
+            background-color: rgba(0, 0, 0, 0.15);
+            min-height: 100%;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div id="filters">
+        <!-- Ordenar por: -->
+        <asp:DropDownList ID="ddl_Orderby" runat="server"></asp:DropDownList>
+        <!-- Categoria: -->
+        <asp:DropDownList ID="ddl_Categoria" runat="server"></asp:DropDownList>
+        <!-- Sub-categoria: -->
+        <asp:DropDownList ID="ddl_subCategoria" runat="server"></asp:DropDownList>
+        <!-- Preco: -->
+        <input type="range" id="rangePrice" min="0" max="300"/> <!-- temporary max value of 300. need to pull/source it from database -->
+    </div>
     <asp:Panel ID="Panel1" runat="server">
 
     </asp:Panel>
