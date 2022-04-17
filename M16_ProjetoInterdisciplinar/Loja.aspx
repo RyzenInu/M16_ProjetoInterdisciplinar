@@ -12,12 +12,13 @@
             place-content: flex-start!important;
         }
 
-        #ContentPlaceHolder1_Panel1{
+        #Panel1{
             display: flex;
             flex-flow: wrap;
             width: 100%;
             justify-content: space-evenly;
             max-height: 100%;
+            min-height: 100%;
         }
 
         .productImage{
@@ -69,7 +70,7 @@
     <!--<div id="filters" runat="server">
 
     </div>-->
-    <asp:Panel ID="Panel1" runat="server">
+    <asp:Panel ID="Panel1" runat="server" ClientIDMode="Static">
 
     </asp:Panel>
 </asp:Content>

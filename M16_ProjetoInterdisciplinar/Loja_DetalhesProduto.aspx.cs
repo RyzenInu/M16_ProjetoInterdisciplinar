@@ -32,7 +32,7 @@ namespace M16_ProjetoInterdisciplinar
                 {
                     productImage.ImageUrl = "~/Imagens/" + sqlDR["imagem"];
                     lbl_productName.Text = sqlDR["nomeProduto"].ToString();
-                    lbl_preco.Text = sqlDR["preco"].ToString();
+                    lbl_preco.Text = sqlDR["preco"].ToString() + "€";
                     if (!String.IsNullOrEmpty(sqlDR["tamanho"].ToString())){
                         lbl_tamanho.Text = "Tamanho: " + sqlDR["tamanho"].ToString();
                     }

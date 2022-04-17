@@ -1,10 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_Loja.Master" AutoEventWireup="true" CodeBehind="Loja_DetalhesProduto.aspx.cs" Inherits="M16_ProjetoInterdisciplinar.Loja_DetalhesProduto" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
+        header{
+            position: fixed;
+        }
         #form1{
             place-content: center;
         }
-
         #contentPanel{
             width: 75%;
             max-height: fit-content;
@@ -32,15 +34,31 @@
             font-weight: bold;
             font-size: 20pt;
         }
+        .productTextContent{
+            margin-top: 15px;
+        }
+        #btn_buy{
+            height: 50px;
+            min-width: 250px;
+            width: auto;
+            border-radius: 30px 30px 30px 30px;
+            background: linear-gradient(45deg, #ffb980, #8d411A);
+            outline: none;
+            border: none;
+            cursor: pointer;
+            place-self: flex-end;
+            font-weight: bold;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="contentPanel">
         <asp:Image ID="productImage" runat="server" ClientIDMode="Static"></asp:Image>
         <div id="productContent">
-            <asp:Label ID="lbl_productName" runat="server" ClientIDMode="Static"></asp:Label>
-            <asp:Label ID="lbl_preco" runat="server" ClientIDMode="Static"></asp:Label>
-            <asp:Label ID="lbl_tamanho" runat="server"></asp:Label>
+            <asp:Label CssClass="productTextContent" ID="lbl_productName" runat="server" ClientIDMode="Static"></asp:Label>
+            <asp:Label CssClass="productTextContent" ID="lbl_preco" runat="server" ClientIDMode="Static"></asp:Label>
+            <asp:Label CssClass="productTextContent" ID="lbl_tamanho" runat="server"></asp:Label>
+            <asp:Button ClientIDMode="Static" ID="btn_buy" runat="server" Text="Adicionar ao Carrinho" OnClick=""/>
         </div>
     </div>
 </asp:Content>
