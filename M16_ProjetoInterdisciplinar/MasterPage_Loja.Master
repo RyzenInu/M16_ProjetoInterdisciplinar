@@ -20,6 +20,7 @@
         *{
             box-sizing: border-box!important;
             -moz-box-sizing: border-box;
+            font-family: Roboto, 'Segoe UI', sans-serif;
         }
 
         html, body{
