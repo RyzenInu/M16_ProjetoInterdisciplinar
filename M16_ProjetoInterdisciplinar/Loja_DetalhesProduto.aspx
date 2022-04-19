@@ -60,7 +60,7 @@
             <asp:Label CssClass="productTextContent" ID="lbl_productName" runat="server" ClientIDMode="Static"></asp:Label>
             <asp:Label CssClass="productTextContent" ID="lbl_preco" runat="server" ClientIDMode="Static"></asp:Label>
             <asp:Label CssClass="productTextContent" ID="lbl_tamanho" runat="server"></asp:Label>
-            <asp:Button ClientIDMode="Static" ID="btn_buy" runat="server" Text="Adicionar ao Carrinho"/>
+            <asp:Button ClientIDMode="Static" ID="btn_buy" runat="server" Text="Adicionar ao Carrinho" OnClick="btn_buy_Click"/>
         </div>
     </div>
 </asp:Content>

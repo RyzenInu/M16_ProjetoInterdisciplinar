@@ -15,10 +15,10 @@ namespace M16_ProjetoInterdisciplinar
         SqlDataReader sqlDR;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Fillpage();
+            AdicionarProduto();
         }
 
-        private void Fillpage()
+        private void AdicionarProduto()
         {
             if (!String.IsNullOrWhiteSpace(Request.QueryString["codProduto"]))
             {
@@ -38,6 +38,23 @@ namespace M16_ProjetoInterdisciplinar
                     }
                 }
             }
+            sqlConnection.Close();
+        }
+
+        protected void btn_buy_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(Session["codCliente"].ToString()))
+            {
+                sqlCommand.Connection = sqlConnection;
+                sqlConnection.Open();
+
+                sqlCommand.CommandText = $"insert into m16proj_tbl_carrinho(codCliente, codProduto, qtdProduto) values()";
+            }
+            else
+            {
+                Response.Write("lmao u ain't logged in, can't buy shit.");
+            }
+            sqlConnection.Close();
         }
     }
 }

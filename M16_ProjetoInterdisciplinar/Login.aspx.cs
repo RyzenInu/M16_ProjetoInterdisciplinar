@@ -37,6 +37,7 @@ namespace M16_ProjetoInterdisciplinar
                     if (txt_password.Text == sqlDR["password"].ToString())
                     {
                         int userType = Convert.ToInt32(sqlDR["tipo"]);
+                        int codLogin = Convert.ToInt32(sqlDR["codLogin"]);
 
                         switch (userType)
                         {
@@ -47,7 +48,22 @@ namespace M16_ProjetoInterdisciplinar
                                 Response.Redirect("Dashboard_Main.aspx");
                                 break;
                             case 2:     //cliente
-                                Response.Redirect("Home.aspx");
+                                sqlDR.Close();
+                                sqlCommand.CommandText = $"select codCliente from m16proj_tbl_cliente where codLogin = {codLogin}";
+                                try
+                                {
+                                    sqlDR = sqlCommand.ExecuteReader();
+                                    if (sqlDR.Read())
+                                    {
+                                        Session["codCliente"] = sqlDR["codCliente"].ToString();
+                                    }
+                                    //Response.Write(Session["codCliente"]);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Response.Write(ex.Message);
+                                }
+                                Response.Redirect("Loja.aspx");
                                 break;
                         }
                     }

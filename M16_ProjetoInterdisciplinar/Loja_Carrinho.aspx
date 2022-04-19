@@ -4,22 +4,31 @@
         header{
             position: fixed;
         }
+        #form1, main{
+            justify-content: center;
+        }
         #form1{
-            place-content: center;
+            height: 100%!important;
         }
         #contentPanel{
-            width: 75%;
-            max-height: fit-content;
+            margin: 90px 20px 20px 20px;
+            min-width: 75%;
+            min-height: 200px;
             background-color: rgba(0, 0, 0, 0.15);
-            padding: 7px;
             border-radius: 10px;
             display: flex;
             flex-direction: row;
         }
+        #cartItemPanel{
+            width: 100%;
+            border-bottom: 1px black solid;
+            max-height: 10vh;
+            background-color: rgba(0, 0, 0, 0.15);
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="contentPanel">
+    <div id="contentPanel" runat="server">
 
     </div>
 </asp:Content>
