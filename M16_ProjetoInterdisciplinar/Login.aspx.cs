@@ -55,7 +55,8 @@ namespace M16_ProjetoInterdisciplinar
                                     sqlDR = sqlCommand.ExecuteReader();
                                     if (sqlDR.Read())
                                     {
-                                        Session["codCliente"] = sqlDR["codCliente"].ToString();
+                                        int codCliente = Convert.ToInt32(sqlDR["codCliente"].ToString());
+                                        Session["codCliente"] = codCliente;
                                     }
                                     //Response.Write(Session["codCliente"]);
                                 }

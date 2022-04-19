@@ -19,31 +19,43 @@ namespace M16_ProjetoInterdisciplinar
         }
         private void AddProducts()
         {
-            int codCliente = Convert.ToInt32(Session["codCliente"].ToString());
-
-            sqlCommand.Connection = sqlConnection;
-            sqlConnection.Open();
-
-            sqlCommand.CommandText = $"select m16proj_tbl_carrinho.codProduto, qtdProduto, imagem, nomeProduto from m16proj_tbl_carrinho inner join m16proj_tbl_produtos on m16proj_tbl_carrinho.codProduto = m16proj_tbl_produtos.codProduto where m16proj_tbl_carrinho.codCliente = {codCliente}";
-
-            sqlDR = sqlCommand.ExecuteReader();
-            while (sqlDR.Read())
+            if (Session["codCliente"] == null || String.IsNullOrEmpty(Session["codCliente"].ToString()))
             {
-                Panel cartItemPanel = new Panel();
-                Image itemImage = new Image();
-                Label itemName = new Label();
-                Label itemQuantity = new Label();
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                int codCliente = Convert.ToInt32(Session["codCliente"].ToString());
 
-                itemImage.ImageUrl = $"~/Imagens/{sqlDR["imagem"]}";
-                itemName.Text = sqlDR["nomeProduto"].ToString();
-                itemQuantity.Text = sqlDR["qtdProduto"].ToString();
+                sqlCommand.Connection = sqlConnection;
+                sqlConnection.Open();
 
-                cartItemPanel.CssClass = "cartItemPanel";
-                cartItemPanel.Controls.Add(itemImage);
-                cartItemPanel.Controls.Add(itemName);
-                cartItemPanel.Controls.Add(itemQuantity);
+                sqlCommand.CommandText = $"select m16proj_tbl_carrinho.codProduto, qtdProduto, imagem, nomeProduto from m16proj_tbl_carrinho inner join m16proj_tbl_produtos on m16proj_tbl_carrinho.codProduto = m16proj_tbl_produtos.codProduto where m16proj_tbl_carrinho.codCliente = {codCliente}";
 
-                contentPanel.Controls.Add(cartItemPanel);
+                sqlDR = sqlCommand.ExecuteReader();
+                while (sqlDR.Read())
+                {
+                    Panel cartItemPanel = new Panel();
+                    Panel itemInfo = new Panel();
+                    Image itemImage = new Image();
+                    Label itemName = new Label();
+                    Label itemQuantity = new Label();
+
+                    itemImage.ImageUrl = $"~/Imagens/{sqlDR["imagem"]}";
+                    itemImage.CssClass = "itemImage";
+                    itemName.Text = sqlDR["nomeProduto"].ToString();
+                    itemQuantity.Text = "Qtd.: " + sqlDR["qtdProduto"].ToString();
+
+                    itemInfo.CssClass = "itemInfo";
+                    itemInfo.Controls.Add(itemName);
+                    itemInfo.Controls.Add(itemQuantity);
+
+                    cartItemPanel.CssClass = "cartItemPanel";
+                    cartItemPanel.Controls.Add(itemImage);
+                    cartItemPanel.Controls.Add(itemInfo);
+
+                    contentPanel.Controls.Add(cartItemPanel);
+                }
             }
         }
     }

@@ -51,6 +51,22 @@
             font-weight: bolder;
             font-size: 12pt;
         }
+
+        #submitBox{
+            display: flex;
+            flex-direction: row;
+            width: fit-content;
+        }
+        #qtdProduto{
+            outline: none;
+            border: none;
+            max-width: 60px;
+            border-radius: 15px;
+        }
+        #qtdProduto:focus{
+            outline: none;
+            border: none;   
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -60,7 +76,10 @@
             <asp:Label CssClass="productTextContent" ID="lbl_productName" runat="server" ClientIDMode="Static"></asp:Label>
             <asp:Label CssClass="productTextContent" ID="lbl_preco" runat="server" ClientIDMode="Static"></asp:Label>
             <asp:Label CssClass="productTextContent" ID="lbl_tamanho" runat="server"></asp:Label>
-            <asp:Button ClientIDMode="Static" ID="btn_buy" runat="server" Text="Adicionar ao Carrinho" OnClick="btn_buy_Click"/>
+            <div id="submitBox">
+                <input type="number" id="qtdProduto" runat="server" ClientIDMode="Static" min="1" value="1"/>
+                <asp:Button ClientIDMode="Static" ID="btn_buy" runat="server" Text="Adicionar ao Carrinho" OnClick="btn_buy_Click"/>
+            </div>
         </div>
     </div>
 </asp:Content>

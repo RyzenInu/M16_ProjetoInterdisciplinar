@@ -3,7 +3,7 @@
     <style>
         .contentContainerPanel{
             /* Sizing properties */
-            width: 90%;
+            width: 85%;
             min-height: 300px;
             height: 70vh;
 
