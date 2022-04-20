@@ -13,69 +13,42 @@
         #contentPlaceHolder-wrapper{
             margin-top: 70px;   
         }
-        #contentPanel{
-            max-width: 75%;
-            min-height: 100%;
-            background-color: rgba(0, 0, 0, 0.15);
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            place-items: center;
-            margin: 10px;
-            padding: 0 10px 0 10px;
-        }
-        .itemImage{
-            max-height: 100%;
-            width: auto;
-        }
-        .itemInfo{
-            min-height: 100%;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
+        form div{
+            min-width: 90%;
             padding: 10px;
         }
-        .itemInfo span{
-            margin-bottom: 5px;
-        }
-        .itemInfo span:first-child{
-            font-size: 14pt;
-        }
-        .itemInfo span:last-child{
-            font-size: 14pt;
-        }
-        .cartItemPanel{
+        #GridView1{
             width: 100%;
-            margin: 10px 10px 10px 10px;
-            max-height: 25vh;
-            background-color: rgba(0, 0, 0, 0.15);
-            border-radius: 15px 15px 15px 15px;
+            border-radius: 20px 20px 20px 20px;
+        }
+        #GridView1 img{
+            max-height: 30vh;
+            width: auto;
+        }
+        tr, td{
+            max-height: 30px;
             overflow: hidden;
-            display: flex;
-            flex-direction: row;
-        }
-        .qtdContainer{
-            display: flex;
-            flex-direction: row;
-            max-width: fit-content;
-        }
-        .qtdContainer input[type=number]{
-            max-width: 50px;
-            border-radius: 7px 7px 7px 7px;
-            outline: none;
-            border: none;
-        }
-        .actionsContainer{
-            display: flex;
-            flex-direction: row;
-            width: 300px;
-            min-height: 10px;
-            margin-top: auto;
-            background-color: rgba(0, 0, 0, 0.15);
-            border-radius: 10px 10px 10px 10px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+    <asp:GridView ClientIDMode="Static" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+        <Columns>
+            <asp:ImageField DataImageUrlField="imagem" DataImageUrlFormatString="~/Imagens/{0}" HeaderText=" ">
+            </asp:ImageField>
+            <asp:BoundField DataField="imagem" HeaderText="imagem" SortExpression="imagem" Visible="False" />
+            <asp:BoundField DataField="nomeProduto" HeaderText="Nome" SortExpression="nomeProduto" />
+            <asp:BoundField DataField="preco" HeaderText="Preço" SortExpression="preco" />
+            <asp:BoundField DataField="qtdProduto" HeaderText="Quantidade" SortExpression="qtdProduto" />
+            <asp:ButtonField Text="Eliminar">
+            <ControlStyle Font-Italic="False" Font-Names="Roboto" Font-Size="12pt" ForeColor="Black" />
+            </asp:ButtonField>
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:L2031ConnectionString %>" SelectCommand="SELECT m16proj_tbl_produtos.imagem, m16proj_tbl_produtos.nomeProduto, m16proj_tbl_produtos.preco, m16proj_tbl_carrinho.qtdProduto FROM m16proj_tbl_carrinho INNER JOIN m16proj_tbl_produtos ON m16proj_tbl_carrinho.codProduto = m16proj_tbl_produtos.codProduto
+WHERE codCliente = @codCliente">
+        <SelectParameters>
+            <asp:SessionParameter Name="codCliente" SessionField="codCliente" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 </asp:Content>
