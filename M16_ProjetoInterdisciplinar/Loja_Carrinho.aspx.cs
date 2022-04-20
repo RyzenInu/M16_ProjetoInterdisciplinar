@@ -37,18 +37,34 @@ namespace M16_ProjetoInterdisciplinar
                 {
                     Panel cartItemPanel = new Panel();
                     Panel itemInfo = new Panel();
-                    Image itemImage = new Image();
+                    Panel qtdContainer = new Panel();
+                    Panel actionsContainer = new Panel();
+
                     Label itemName = new Label();
-                    Label itemQuantity = new Label();
+                    Label qtd = new Label();
+                    
+                    Image itemImage = new Image();
+                    TextBox itemQuantity = new TextBox();
 
                     itemImage.ImageUrl = $"~/Imagens/{sqlDR["imagem"]}";
                     itemImage.CssClass = "itemImage";
                     itemName.Text = sqlDR["nomeProduto"].ToString();
-                    itemQuantity.Text = "Qtd.: " + sqlDR["qtdProduto"].ToString();
+
+                    qtd.Text = "Qtd.:";
+
+                    itemQuantity.Attributes.Add("type", "number");
+                    itemQuantity.Text = sqlDR["qtdProduto"].ToString();
+
+                    qtdContainer.Controls.Add(qtd);
+                    qtdContainer.Controls.Add(itemQuantity);
+                    qtdContainer.CssClass = "qtdContainer";
+
+                    actionsContainer.CssClass = "actionsContainer";
 
                     itemInfo.CssClass = "itemInfo";
                     itemInfo.Controls.Add(itemName);
-                    itemInfo.Controls.Add(itemQuantity);
+                    itemInfo.Controls.Add(qtdContainer);
+                    itemInfo.Controls.Add(actionsContainer);
 
                     cartItemPanel.CssClass = "cartItemPanel";
                     cartItemPanel.Controls.Add(itemImage);

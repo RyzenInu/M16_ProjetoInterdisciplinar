@@ -8,24 +8,25 @@
             justify-content: center;
         }
         #form1, main, #contentPlaceHolder-wrapper{
-            height: 100%!important;
+            height: fit-content;
         }
         #contentPlaceHolder-wrapper{
             margin-top: 70px;   
         }
         #contentPanel{
-            margin-top: 110px;
-            min-width: 75%;
-            min-height: 200px;
+            max-width: 75%;
+            min-height: 100%;
             background-color: rgba(0, 0, 0, 0.15);
             border-radius: 10px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            place-items: center;
+            margin: 10px;
+            padding: 0 10px 0 10px;
         }
         .itemImage{
-            height: 100%;
-            width: 200px;
+            max-height: 100%;
+            width: auto;
         }
         .itemInfo{
             min-height: 100%;
@@ -44,19 +45,37 @@
             font-size: 14pt;
         }
         .cartItemPanel{
-            width: 90%;
+            width: 100%;
+            margin: 10px 10px 10px 10px;
             max-height: 25vh;
             background-color: rgba(0, 0, 0, 0.15);
             border-radius: 15px 15px 15px 15px;
-            margin: 10px;
             overflow: hidden;
             display: flex;
             flex-direction: row;
         }
+        .qtdContainer{
+            display: flex;
+            flex-direction: row;
+            max-width: fit-content;
+        }
+        .qtdContainer input[type=number]{
+            max-width: 50px;
+            border-radius: 7px 7px 7px 7px;
+            outline: none;
+            border: none;
+        }
+        .actionsContainer{
+            display: flex;
+            flex-direction: row;
+            width: 300px;
+            min-height: 10px;
+            margin-top: auto;
+            background-color: rgba(0, 0, 0, 0.15);
+            border-radius: 10px 10px 10px 10px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="contentPanel" runat="server" ClientIDMode="Static">
-
-    </div>
+    
 </asp:Content>
