@@ -92,7 +92,7 @@
             text-decoration: none;
         }
 
-        #cartBtnContainer{
+        .headerBtnContainer{
             display: flex;
             flex-direction: row;
             place-items: center;
@@ -106,7 +106,7 @@
             transition: all 0.15s ease-in-out;
         }
 
-        #cartBtnContainer:hover{
+        .headerBtnContainer:hover{
             background-color: rgba(0,0,0,0.7);
         }
         
@@ -146,8 +146,10 @@
         <div id="header_logo">
             <img src="Imagens/MSMS-Logo-White.png"/>
         </div>
-        <a id="cartBtnContainer" href="Loja_Carrinho.aspx">
-            <span id="price">0.00€</span>
+        <a id="encBtnContainer" href="Loja_Encomendas.aspx" class="headerBtnContainer">
+            <span id="enc" class="material-icons">local_shipping</span>
+        </a>
+        <a id="cartBtnContainer" href="Loja_Carrinho.aspx" class="headerBtnContainer">
             <span id="cart" class="material-icons">shopping_cart</span>
         </a>
     </header>

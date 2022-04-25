@@ -79,6 +79,7 @@
     <Content Include="Loja.aspx" />
     <Content Include="Loja_Carrinho.aspx" />
     <Content Include="Loja_DetalhesProduto.aspx" />
+    <Content Include="Loja_Encomendas.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -152,6 +153,13 @@
     </Compile>
     <Compile Include="Loja_DetalhesProduto.aspx.designer.cs">
       <DependentUpon>Loja_DetalhesProduto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Loja_Encomendas.aspx.cs">
+      <DependentUpon>Loja_Encomendas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loja_Encomendas.aspx.designer.cs">
+      <DependentUpon>Loja_Encomendas.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage_Dashboard.Master.cs">
       <DependentUpon>MasterPage_Dashboard.Master</DependentUpon>

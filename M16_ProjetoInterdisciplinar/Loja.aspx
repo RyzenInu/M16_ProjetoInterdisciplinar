@@ -16,14 +16,17 @@
             display: flex;
             flex-flow: wrap;
             width: 100%;
-            justify-content: space-evenly;
+            justify-content: space-between;
+            align-content: flex-start;
             max-height: 100%;
             min-height: 100%;
         }
 
         .productImage{
-            max-height: 40vh;
-            max-width: 40vh;
+            height: 30vw;
+            width: 30vw;
+            max-height: 30vh;
+            max-width: 30vh;
             border-radius: 10px;
         }
 
@@ -48,9 +51,12 @@
             margin: 10px;
             border-radius: 10px;
             height: fit-content;
+            width: fit-content;
             max-width: fit-content;
             transition: all 0.15s ease-in-out;
             user-select: none;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .productPanel:hover{

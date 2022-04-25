@@ -19,7 +19,6 @@ namespace M16_ProjetoInterdisciplinar
         }
 
         int id;
-
         private void AdicionarProduto()
         {
             if (!String.IsNullOrWhiteSpace(Request.QueryString["codProduto"]))

@@ -5,10 +5,11 @@
     </script>
     <style>
         #form1{
-            height: 60%;
-            width: 30vw;
-            min-height: 200px;
-            min-width: 300px;
+            padding: 0!important;
+        }
+        #formChild{
+            height: fit-content;
+            min-width: 40%;
 
             display: flex;
             flex-direction: column;
@@ -124,69 +125,71 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>Inserir novo Produto</h2>
-    <div class="inputBox">
-        <label>person</label>
-        <asp:TextBox ID="txt_nomeProd" runat="server" placeholder="Nome do produto" CssClass="inputField"></asp:TextBox>
-        <asp:RequiredFieldValidator CssClass="aspVal" ID="ReqFieldVal_nome" runat="server" ErrorMessage="*Campo Obrigatório" ControlToValidate="txt_nomeProd">
-        </asp:RequiredFieldValidator>
-    </div>
-    &nbsp
+    <div id="formChild">
+        <h2>Inserir novo Produto</h2>
+        <div class="inputBox">
+            <label>person</label>
+            <asp:TextBox ID="txt_nomeProd" runat="server" placeholder="Nome do produto" CssClass="inputField"></asp:TextBox>
+            <asp:RequiredFieldValidator CssClass="aspVal" ID="ReqFieldVal_nome" runat="server" ErrorMessage="*Campo Obrigatório" ControlToValidate="txt_nomeProd">
+            </asp:RequiredFieldValidator>
+        </div>
+        &nbsp
 
-    <div class="inputBox">
-        <label>straighten</label>
-        <asp:TextBox ID="txt_tamanho" runat="server" placeholder="Tamanho" CssClass="inputField"></asp:TextBox>
-    </div>
-    &nbsp
+        <div class="inputBox">
+            <label>straighten</label>
+            <asp:TextBox ID="txt_tamanho" runat="server" placeholder="Tamanho" CssClass="inputField"></asp:TextBox>
+        </div>
+        &nbsp
 
-    <div class="inputBox">
-        <label>photo</label>
-        <asp:FileUpload ID="FileUpload1" runat="server"/>
-        <asp:RequiredFieldValidator CssClass="aspVal" ID="ReqFieldVal_img" runat="server" ErrorMessage="*Campo Obrigatório" ControlToValidate="FileUpload1">
-        </asp:RequiredFieldValidator>
-    </div>
-    &nbsp
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
-            <div id="categContainer">
-                <span>Categoria</span>
-                <div class="inputBox">
-                    <label>menu</label>
-                    <asp:DropDownList CssClass="dropDownInputField inputField" ID="ddl_categ" runat="server" DataSourceID="SqlDataSource1" DataTextField="nomeCategoria" DataValueField="codCategProduto" AutoPostBack="True" Enabled="True" OnSelectedIndexChanged="ddl_categ_SelectedIndexChanged"></asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:L2031ConnectionString %>" SelectCommand="SELECT [codCategProduto], [nomeCategoria] FROM [m16proj_tbl_categoriasProduto]"></asp:SqlDataSource>
+        <div class="inputBox">
+            <label>photo</label>
+            <asp:FileUpload ID="FileUpload1" runat="server"/>
+            <asp:RequiredFieldValidator CssClass="aspVal" ID="ReqFieldVal_img" runat="server" ErrorMessage="*Campo Obrigatório" ControlToValidate="FileUpload1">
+            </asp:RequiredFieldValidator>
+        </div>
+        &nbsp
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div id="categContainer">
+                    <span>Categoria</span>
+                    <div class="inputBox">
+                        <label>menu</label>
+                        <asp:DropDownList CssClass="dropDownInputField inputField" ID="ddl_categ" runat="server" DataSourceID="SqlDataSource1" DataTextField="nomeCategoria" DataValueField="codCategProduto" AutoPostBack="True" Enabled="True" OnSelectedIndexChanged="ddl_categ_SelectedIndexChanged"></asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:L2031ConnectionString %>" SelectCommand="SELECT [codCategProduto], [nomeCategoria] FROM [m16proj_tbl_categoriasProduto]"></asp:SqlDataSource>
+                    </div>
+                    &nbsp
+                    <span>Sub-categoria</span>
+                    <div class="inputBox">
+                        <label>segment</label>
+                        <asp:DropDownList CssClass="dropDownInputField inputField" ID="ddl_subCateg" runat="server" DataSourceID="SQL_DataSource01" DataTextField="nomeSubCategoria" DataValueField="codSubCategProduto" AutoPostBack="True" OnSelectedIndexChanged="ddl_subCateg_SelectedIndexChanged"></asp:DropDownList>
+                        <asp:SqlDataSource ID="SQL_DataSource01" runat="server" ConnectionString="<%$ ConnectionStrings:L2031ConnectionString %>" SelectCommand="SELECT [codSubCategProduto], [nomeSubCategoria] FROM [m16proj_tbl_subCategoriasProduto] WHERE ([codCategProduto] = @codCategProduto)">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="ddl_categ" Name="codCategProduto" PropertyName="SelectedValue" Type="Int32" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                    </div>
                 </div>
-                &nbsp
-                <span>Sub-categoria</span>
-                <div class="inputBox">
-                    <label>segment</label>
-                    <asp:DropDownList CssClass="dropDownInputField inputField" ID="ddl_subCateg" runat="server" DataSourceID="SQL_DataSource01" DataTextField="nomeSubCategoria" DataValueField="codSubCategProduto" AutoPostBack="True" OnSelectedIndexChanged="ddl_subCateg_SelectedIndexChanged"></asp:DropDownList>
-                    <asp:SqlDataSource ID="SQL_DataSource01" runat="server" ConnectionString="<%$ ConnectionStrings:L2031ConnectionString %>" SelectCommand="SELECT [codSubCategProduto], [nomeSubCategoria] FROM [m16proj_tbl_subCategoriasProduto] WHERE ([codCategProduto] = @codCategProduto)">
-                        <SelectParameters>
-                            <asp:ControlParameter ControlID="ddl_categ" Name="codCategProduto" PropertyName="SelectedValue" Type="Int32" />
-                        </SelectParameters>
-                    </asp:SqlDataSource>
-                </div>
-            </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
-    &nbsp
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        &nbsp
 
-    <div class="inputBox">
-        <label>euro</label>
-        <asp:TextBox ID="txt_preco" runat="server" placeholder="Preço" CssClass="inputField"></asp:TextBox>
-        <asp:RequiredFieldValidator CssClass="aspVal" ID="ReqFieldVal_preco" runat="server" ErrorMessage="*Campo Obrigatório" ControlToValidate="txt_preco">
-        </asp:RequiredFieldValidator>
+        <div class="inputBox">
+            <label>euro</label>
+            <asp:TextBox ID="txt_preco" runat="server" placeholder="Preço" CssClass="inputField"></asp:TextBox>
+            <asp:RequiredFieldValidator CssClass="aspVal" ID="ReqFieldVal_preco" runat="server" ErrorMessage="*Campo Obrigatório" ControlToValidate="txt_preco">
+            </asp:RequiredFieldValidator>
+        </div>
+        &nbsp
+
+        <div class="inputBox">
+            <label>archive</label>
+            <asp:TextBox ID="txt_stock" runat="server" placeholder="Qtd. em Stock" TextMode="Number" Min="0" CssClass="inputField"></asp:TextBox>
+            <asp:RequiredFieldValidator CssClass="aspVal" ID="ReqFieldVal_stock" runat="server" ErrorMessage="*Campo Obrigatório" ControlToValidate="txt_stock">
+            </asp:RequiredFieldValidator>
+        </div>
+        &nbsp
+
+        <asp:Button ID="btn_register" runat="server" Text="Inserir Produto" width="90%" OnClick="btn_register_Click"/>
     </div>
-    &nbsp
-
-    <div class="inputBox">
-        <label>archive</label>
-        <asp:TextBox ID="txt_stock" runat="server" placeholder="Qtd. em Stock" TextMode="Number" Min="0" CssClass="inputField"></asp:TextBox>
-        <asp:RequiredFieldValidator CssClass="aspVal" ID="ReqFieldVal_stock" runat="server" ErrorMessage="*Campo Obrigatório" ControlToValidate="txt_stock">
-        </asp:RequiredFieldValidator>
-    </div>
-    &nbsp
-
-    <asp:Button ID="btn_register" runat="server" Text="Inserir Produto" width="90%" OnClick="btn_register_Click"/>
 </asp:Content>

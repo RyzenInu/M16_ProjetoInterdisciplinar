@@ -68,6 +68,9 @@
             border: none;   
         }
     </style>
+    <script>
+        window.document.title = "Detalhes do Artigo";
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="contentPanel">
