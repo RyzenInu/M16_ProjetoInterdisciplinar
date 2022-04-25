@@ -11,7 +11,14 @@ namespace M16_ProjetoInterdisciplinar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["name"] == null || String.IsNullOrEmpty(Session["name"].ToString()))
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                userName.InnerText = Session["name"].ToString();
+            }
         }
     }
 }

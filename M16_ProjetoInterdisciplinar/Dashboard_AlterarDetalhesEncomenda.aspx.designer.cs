@@ -11,43 +11,52 @@ namespace M16_ProjetoInterdisciplinar
 {
 
 
-    public partial class MasterPage_Loja
+    public partial class Dashboard_AlterarDetalhesEncomenda
     {
 
         /// <summary>
-        /// head control.
+        /// headerInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl headerInfo;
 
         /// <summary>
-        /// form1 control.
+        /// ddl_estado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_estado;
 
         /// <summary>
-        /// logoutBtnContainer control.
+        /// btn_alterarEncomenda control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton logoutBtnContainer;
+        protected global::System.Web.UI.WebControls.Button btn_alterarEncomenda;
 
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

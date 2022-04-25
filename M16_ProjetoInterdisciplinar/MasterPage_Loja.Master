@@ -53,6 +53,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
+            top: 0;
 
             /* Other */
         }
@@ -132,32 +133,36 @@
 
         #form1 {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             place-items: center;
             min-height: 100%;
         }
     </style>
 </head>
 <body>
-    <header id="header">
-        <a id="homeBtnContainer" href="Home.aspx">
-            <span id="home" class="material-icons">home</span>
-        </a>
-        <div id="header_logo">
-            <img src="Imagens/MSMS-Logo-White.png"/>
-        </div>
-        <a id="encBtnContainer" href="Loja_Encomendas.aspx" class="headerBtnContainer">
-            <span id="enc" class="material-icons">local_shipping</span>
-        </a>
-        <a id="cartBtnContainer" href="Loja_Carrinho.aspx" class="headerBtnContainer">
-            <span id="cart" class="material-icons">shopping_cart</span>
-        </a>
-    </header>
+    
     
     <!-- Web form with MasterPage content starts here -->
     <main id="mainContainer">
         <div id="contentPlaceHolder-wrapper">
             <form id="form1" runat="server">
+                <header id="header">
+                    <a id="homeBtnContainer" href="Home.aspx">
+                        <span id="home" class="material-icons">home</span>
+                    </a>
+                    <div id="header_logo">
+                        <img src="Imagens/MSMS-Logo-White.png"/>
+                    </div>
+                    <asp:LinkButton ID="logoutBtnContainer" cssclass="headerBtnContainer" runat="server" OnClick="logoutBtnContainer_Click">
+                        <span id="logout" class="material-icons" style="color: red;">logout</span>
+                    </asp:LinkButton>
+                    <a id="encBtnContainer" href="Loja_Encomendas.aspx" class="headerBtnContainer">
+                        <span id="enc" class="material-icons">local_shipping</span>
+                    </a>
+                    <a id="cartBtnContainer" href="Loja_Carrinho.aspx" class="headerBtnContainer">
+                        <span id="cart" class="material-icons">shopping_cart</span>
+                    </a>
+                </header>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
                 </asp:ContentPlaceHolder>

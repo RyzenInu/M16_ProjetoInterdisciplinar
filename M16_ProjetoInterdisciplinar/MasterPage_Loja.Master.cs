@@ -13,5 +13,11 @@ namespace M16_ProjetoInterdisciplinar
         {
 
         }
+
+        protected void logoutBtnContainer_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Home.aspx");
+        }
     }
 }

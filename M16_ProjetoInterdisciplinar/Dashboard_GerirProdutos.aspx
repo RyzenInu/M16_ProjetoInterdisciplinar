@@ -4,9 +4,12 @@
         window.document.title = "Dashboard - Alterar Produtos";
     </script>
     <style>
+        #form1{
+            display: flex;
+            flex-direction: column;
+        }
         #form1 div{
             width: 100%;
-            height: 100%;
             display: flex;
             place-content: center;
             place-items: center;
@@ -51,6 +54,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h2>Alterar Produtos</h2>
     <asp:GridView ID="GridView1" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
         <Columns>
             <asp:ImageField DataImageUrlField="imagem" DataImageUrlFormatString="~/Imagens/{0}" HeaderText=" ">

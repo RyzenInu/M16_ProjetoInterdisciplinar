@@ -122,7 +122,7 @@
         }
     </style>
     <script>
-        window.document.title = "Registo";
+        window.document.title = "Login";
         onload = function () {
             document.getElementById("header").classList.add("headerstuff");
             header.style.position = "fixed";

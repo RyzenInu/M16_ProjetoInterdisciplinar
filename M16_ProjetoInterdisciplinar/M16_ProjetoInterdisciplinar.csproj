@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Dashboard_AlterarDetalhesEncomenda.aspx" />
     <Content Include="Dashboard_CriarProdutos.aspx" />
     <Content Include="Dashboard_GerirClientes.aspx" />
     <Content Include="Dashboard_GerirEncomendas.aspx" />
@@ -84,6 +85,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dashboard_AlterarDetalhesEncomenda.aspx.cs">
+      <DependentUpon>Dashboard_AlterarDetalhesEncomenda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard_AlterarDetalhesEncomenda.aspx.designer.cs">
+      <DependentUpon>Dashboard_AlterarDetalhesEncomenda.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard_CriarProdutos.aspx.cs">
       <DependentUpon>Dashboard_CriarProdutos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

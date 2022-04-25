@@ -15,12 +15,16 @@ namespace M16_ProjetoInterdisciplinar
         SqlDataReader sqlDR;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["codCliente"] != null)
+            {
+                Response.Redirect("Loja.aspx");
+            }
         }
-
+        public static string username;
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string username = txt_username.Text;
+            Session.Clear();
+            username = txt_username.Text;
 
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandText = $"select * from m16proj_tbl_login where username = '{username}'";
@@ -42,9 +46,11 @@ namespace M16_ProjetoInterdisciplinar
                         switch (userType)
                         {
                             case 0:     //admin
-                                Response.Redirect("Dashboard_main.aspx");
+                                setName();
+                                Response.Redirect("Dashboard_Main.aspx");
                                 break;
                             case 1:     //funcionário
+                                setName();
                                 Response.Redirect("Dashboard_Main.aspx");
                                 break;
                             case 2:     //cliente
@@ -88,6 +94,11 @@ namespace M16_ProjetoInterdisciplinar
                 if (txt_username.Text == "") { lbl_username.Text = "*Campo obrigatório."; }
                 txt_username.Focus();
             }
+        }
+        private void setName()
+        {
+            /* Could create a table for admins/func. and actually display a full name, but it would give me more work than I am willing to do */
+            Session["name"] = username;
         }
     }
 }
