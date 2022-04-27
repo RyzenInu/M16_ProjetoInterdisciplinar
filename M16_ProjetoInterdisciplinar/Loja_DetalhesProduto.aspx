@@ -8,7 +8,6 @@
             place-content: center;
         }
         #contentPanel{
-            margin-top: 70px;
             width: 75%;
             height: 80%;
             background-color: rgba(0, 0, 0, 0.15);
@@ -44,6 +43,7 @@
             width: auto;
             border-radius: 30px 30px 30px 30px;
             background: linear-gradient(45deg, #ffb980, #d96529);
+            color: white;
             outline: none;
             border: none;
             cursor: pointer;
@@ -66,6 +66,10 @@
         #qtdProduto:focus{
             outline: none;
             border: none;   
+        }
+        #contentPlaceHolder-wrapper{
+            padding-top: 70px;
+            margin: 0!important;
         }
     </style>
     <script>

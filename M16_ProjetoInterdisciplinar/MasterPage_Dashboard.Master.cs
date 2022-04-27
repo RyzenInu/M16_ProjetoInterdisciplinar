@@ -20,5 +20,11 @@ namespace M16_ProjetoInterdisciplinar
                 userName.InnerText = Session["name"].ToString();
             }
         }
+
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Home.aspx");
+        }
     }
 }

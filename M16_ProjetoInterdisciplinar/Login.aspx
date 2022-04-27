@@ -49,10 +49,6 @@
         body{
             overflow: hidden;
         }
-
-        header{
-            max-height: 60px;
-        }
         header #headerTop{
             display: none;
         }

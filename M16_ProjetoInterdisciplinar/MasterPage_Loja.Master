@@ -54,6 +54,7 @@
             flex-direction: row;
             align-items: center;
             top: 0;
+            position: fixed;
 
             /* Other */
         }
@@ -129,6 +130,7 @@
             flex-direction: column;
             place-content: center;
             transition: all 0.15s ease-in-out;
+            margin-top: 70px;
         }
 
         #form1 {

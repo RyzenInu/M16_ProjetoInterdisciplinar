@@ -27,46 +27,60 @@ namespace M16_ProjetoInterdisciplinar
             string date = DateTime.Now.ToString("yyyy-MM-dd");
 
             sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandText = $"insert into m16proj_tbl_encomendas(dataEncomenda, situacao, codCliente) values(@dataEncomenda, @situacao, @codCliente)";
-            
-            sqlCommand.Parameters.AddWithValue("@dataEncomenda", date);
-            sqlCommand.Parameters.AddWithValue("@situacao", "Em processamento.");
-            sqlCommand.Parameters.AddWithValue("@codCliente", codCliente);
 
+            sqlCommand.CommandText = $"select codCliente from m16proj_tbl_carrinho where codCliente = {codCliente}";
             sqlConnection.Open();
-            try
+            sqlDR = sqlCommand.ExecuteReader();
+            if(sqlDR.Read())
             {
-                sqlCommand.ExecuteNonQuery();
-                sqlCommand.CommandText = $"select numEncomenda from m16proj_tbl_encomendas where codCliente = {codCliente}";
-                sqlDR = sqlCommand.ExecuteReader();
-                if (sqlDR.Read())
+                sqlDR.Close();
+                sqlConnection.Close();
+
+                sqlCommand.CommandText = $"insert into m16proj_tbl_encomendas(dataEncomenda, situacao, codCliente) values(@dataEncomenda, @situacao, @codCliente)";
+
+                sqlCommand.Parameters.AddWithValue("@dataEncomenda", date);
+                sqlCommand.Parameters.AddWithValue("@situacao", "Em processamento.");
+                sqlCommand.Parameters.AddWithValue("@codCliente", codCliente);
+
+                sqlConnection.Open();
+                try
                 {
-                    int num = Convert.ToInt32(sqlDR["numEncomenda"].ToString());
-                    sqlCommand.CommandText = $"insert into m16proj_tbl_detalhes_encomenda(numEncomenda, codProduto, qtdProduto) select '{num}', codProduto, qtdProduto from m16proj_tbl_carrinho where m16proj_tbl_carrinho.codCliente='{codCliente}'";
-                    sqlConnection.Close();
-                    sqlConnection.Open();
-
                     sqlCommand.ExecuteNonQuery();
-                    sqlConnection.Close();
-                    sqlConnection.Open();
+                    sqlCommand.CommandText = $"select numEncomenda from m16proj_tbl_encomendas where codCliente = {codCliente}";
+                    sqlDR = sqlCommand.ExecuteReader();
+                    if (sqlDR.Read())
+                    {
+                        int num = Convert.ToInt32(sqlDR["numEncomenda"].ToString());
+                        sqlCommand.CommandText = $"insert into m16proj_tbl_detalhes_encomenda(numEncomenda, codProduto, qtdProduto) select '{num}', codProduto, qtdProduto from m16proj_tbl_carrinho where m16proj_tbl_carrinho.codCliente='{codCliente}'";
+                        sqlConnection.Close();
+                        sqlConnection.Open();
 
-                    sqlCommand.CommandText = $"delete from m16proj_tbl_carrinho where codCliente = '{codCliente}'";
-                    sqlCommand.ExecuteNonQuery();
-                    sqlConnection.Close();
-                    sqlConnection.Open();
+                        sqlCommand.ExecuteNonQuery();
+                        sqlConnection.Close();
+                        sqlConnection.Open();
 
-                    sqlCommand.CommandText = $"update m16proj_tbl_encomendas set valorTotal = (select Sum(preco * qtdProduto) from m16proj_tbl_detalhes_encomenda, m16proj_tbl_produtos where m16proj_tbl_detalhes_encomenda.codProduto = m16proj_tbl_produtos.codProduto and m16proj_tbl_detalhes_encomenda.numEncomenda = '{num}') where m16proj_tbl_encomendas.numEncomenda = '{num}'";
-                    sqlCommand.ExecuteNonQuery();
+                        sqlCommand.CommandText = $"delete from m16proj_tbl_carrinho where codCliente = '{codCliente}'";
+                        sqlCommand.ExecuteNonQuery();
+                        sqlConnection.Close();
+                        sqlConnection.Open();
 
-                    Response.Write("<script>alert('Compra Finalizada com sucesso.')</script>");
-                    Response.Redirect("Loja_Encomendas.aspx");
+                        sqlCommand.CommandText = $"update m16proj_tbl_encomendas set valorTotal = (select Sum(preco * qtdProduto) from m16proj_tbl_detalhes_encomenda, m16proj_tbl_produtos where m16proj_tbl_detalhes_encomenda.codProduto = m16proj_tbl_produtos.codProduto and m16proj_tbl_detalhes_encomenda.numEncomenda = '{num}') where m16proj_tbl_encomendas.numEncomenda = '{num}'";
+                        sqlCommand.ExecuteNonQuery();
+
+                        Response.Write("<script>alert('Compra Finalizada com sucesso.')</script>");
+                        Response.Redirect("Loja_Encomendas.aspx");
+                    }
                 }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
+                Response.Redirect("Loja_Encomendas");
             }
-            catch (Exception ex)
+            else
             {
-                Response.Write(ex.Message);
+                Response.Redirect("Loja.aspx");
             }
-            Response.Redirect("");
         }
     }
 }

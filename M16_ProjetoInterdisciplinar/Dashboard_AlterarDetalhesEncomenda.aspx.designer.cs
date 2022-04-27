@@ -33,6 +33,15 @@ namespace M16_ProjetoInterdisciplinar
         protected global::System.Web.UI.WebControls.DropDownList ddl_estado;
 
         /// <summary>
+        /// txt_date control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_date;
+
+        /// <summary>
         /// btn_alterarEncomenda control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace M16_ProjetoInterdisciplinar
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// SqlDataSource2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
 
         /// <summary>
         /// SqlDataSource1 control.

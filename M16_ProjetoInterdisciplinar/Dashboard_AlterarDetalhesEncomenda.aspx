@@ -4,11 +4,17 @@
         window.document.title = "Dashboard - Gerir Encomendas";
     </script>
     <style>
+        h2{
+            margin: 0;
+        }
         #form1{
             place-content: flex-start!important;
-            width: 90%!important;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+        }
+        body, #form1{
+            max-width: 100%!important;
+            overflow-x: hidden;
         }
         #headerBar{
             border-bottom: 1px solid white;
@@ -29,6 +35,27 @@
             flex-direction: row;
             place-items: center;
             place-content: center;
+            justify-content: space-evenly;
+        }
+        #btn_alterarEncomenda{
+            min-width: 200px;
+            width: fit-content;
+            height: fit-content;
+            background: linear-gradient(45deg, #ffb980, #d96529);
+            font-weight: bold;
+            font-size: 12pt;
+            color: white;
+            border-radius: 30px 30px 30px 30px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+        }
+        #dashboardContent div:nth-child(4){
+            width: 100%;
+            height: 100%;
+        }
+        #dashboardContent{
+            padding: 0px 6vw;
         }
 
         /*Gridview stuff*/
@@ -89,14 +116,20 @@
         <h2 id="headerInfo" runat="server" ClientIDMode="Static"></h2>
     </div>
     <div id="actions">
-        Estado:
-        <asp:DropDownList ID="ddl_estado" runat="server">
-            <asp:ListItem>Em processamento</asp:ListItem>
-            <asp:ListItem>Aguardando artigos</asp:ListItem>
-            <asp:ListItem>Enviada</asp:ListItem>
-            <asp:ListItem>Entregue</asp:ListItem>
-        </asp:DropDownList>
-        <asp:Button ID="btn_alterarEncomenda" runat="server" Text="Confirmar Alterações" />
+        <div>
+            Estado:
+            <asp:DropDownList ID="ddl_estado" runat="server">
+                <asp:ListItem>Em processamento</asp:ListItem>
+                <asp:ListItem>Aguardando artigos</asp:ListItem>
+                <asp:ListItem>Enviada</asp:ListItem>
+                <asp:ListItem>Entregue</asp:ListItem>
+            </asp:DropDownList>
+        </div>
+        <div>
+            Data de Entrega:
+            <asp:TextBox ID="txt_date" runat="server" ClientIDMode="Static" TextMode="Date"></asp:TextBox>
+        </div>
+        <asp:Button ClientIDMode="Static" ID="btn_alterarEncomenda" runat="server" Text="Confirmar Alterações" OnClick="btn_alterarEncomenda_Click" />
     </div>
     <div id="produtosEncomendados">
         <h2>Produtos Encomendados</h2>

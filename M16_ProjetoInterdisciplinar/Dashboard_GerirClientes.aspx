@@ -4,11 +4,11 @@
         window.document.title = "Dashboard - Gerir Clientes";
     </script>
     <style>
-        #form1{
+        #dashboardContent{
             display: flex;
-            flex-direction: column;
+            align-content: center;
         }
-        #form1 div{
+        #dashboardContent div{
             width: 100%;
             display: flex;
             place-content: center;

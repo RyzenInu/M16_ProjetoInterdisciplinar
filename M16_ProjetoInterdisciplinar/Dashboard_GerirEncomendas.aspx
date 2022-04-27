@@ -4,11 +4,11 @@
         window.document.title = "Dashboard - Gerir Encomendas";
     </script>
     <style>
-        #form1{
+        #dashboardContent{
             display: flex;
-            flex-direction: column;
+            align-content: center;
         }
-        #form1 div{
+        #dashboardContent div{
             width: 100%;
             display: flex;
             place-content: center;
@@ -42,15 +42,16 @@
     <h2>Gerir Encomendas</h2>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="numEncomenda" DataSourceID="SqlDataSource1" ClientIDMode="Static" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <Columns>
-            <asp:CommandField SelectText="Selecionar" ShowSelectButton="True">
+            <asp:CommandField ShowSelectButton="True">
             <ControlStyle ForeColor="White" />
             </asp:CommandField>
             <asp:BoundField DataField="numEncomenda" HeaderText="Nº" InsertVisible="False" ReadOnly="True" SortExpression="numEncomenda" />
             <asp:BoundField DataField="nome" HeaderText="Cliente" SortExpression="nome" />
             <asp:BoundField DataField="valorTotal" HeaderText="Valor Total" SortExpression="valorTotal" DataFormatString="{0}€" />
-            <asp:BoundField DataField="dataEncomenda" HeaderText="Data da Encomenda" SortExpression="dataEncomenda" DataFormatString="{0:dd/MM/yyyy}" />
+            <asp:BoundField DataField="dataEncomenda" HeaderText="Data de Encomenda" SortExpression="dataEncomenda" DataFormatString="{0:dd-MM-yyyy}" />
             <asp:BoundField DataField="situacao" HeaderText="Estado" SortExpression="situacao" />
+            <asp:BoundField DataField="dataEntrega" DataFormatString="{0:dd-MM-yyyy}" HeaderText="Data de Entrega" SortExpression="dataEntrega" />
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:L2031ConnectionString %>" SelectCommand="SELECT m16proj_tbl_encomendas.numEncomenda, m16proj_tbl_cliente.nome, m16proj_tbl_encomendas.valorTotal, m16proj_tbl_encomendas.dataEncomenda, m16proj_tbl_encomendas.situacao FROM m16proj_tbl_cliente INNER JOIN m16proj_tbl_encomendas ON m16proj_tbl_cliente.codCliente = m16proj_tbl_encomendas.codCliente ORDER BY m16proj_tbl_encomendas.dataEncomenda, m16proj_tbl_encomendas.situacao"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:L2031ConnectionString %>" SelectCommand="SELECT m16proj_tbl_encomendas.numEncomenda, m16proj_tbl_cliente.nome, m16proj_tbl_encomendas.valorTotal, m16proj_tbl_encomendas.dataEncomenda, m16proj_tbl_encomendas.situacao, m16proj_tbl_encomendas.dataEntrega FROM m16proj_tbl_cliente INNER JOIN m16proj_tbl_encomendas ON m16proj_tbl_cliente.codCliente = m16proj_tbl_encomendas.codCliente ORDER BY m16proj_tbl_encomendas.dataEncomenda, m16proj_tbl_encomendas.situacao"></asp:SqlDataSource>
 </asp:Content>
