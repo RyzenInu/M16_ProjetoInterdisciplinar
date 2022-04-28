@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace M16_ProjetoInterdisciplinar
 {
-    public partial class Dashboard_Main : System.Web.UI.Page
+    public partial class Loja_EncomendasDetalhes : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["dataHoje"] = DateTime.Now.ToString("yyyy-MM-dd");
+
         }
     }
 }

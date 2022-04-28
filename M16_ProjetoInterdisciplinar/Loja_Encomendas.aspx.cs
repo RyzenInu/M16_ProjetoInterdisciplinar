@@ -11,6 +11,14 @@ namespace M16_ProjetoInterdisciplinar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["codCliente"] == null || String.IsNullOrEmpty(Session["codCliente"].ToString()))
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

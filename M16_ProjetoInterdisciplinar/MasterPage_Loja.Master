@@ -130,10 +130,10 @@
             flex-direction: column;
             place-content: center;
             transition: all 0.15s ease-in-out;
-            margin-top: 70px;
         }
 
         #form1 {
+            padding-top: 70px;
             display: flex;
             flex-direction: column;
             place-items: center;

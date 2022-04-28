@@ -39,7 +39,7 @@ namespace M16_ProjetoInterdisciplinar
                 sqlCommand.CommandText = $"insert into m16proj_tbl_encomendas(dataEncomenda, situacao, codCliente) values(@dataEncomenda, @situacao, @codCliente)";
 
                 sqlCommand.Parameters.AddWithValue("@dataEncomenda", date);
-                sqlCommand.Parameters.AddWithValue("@situacao", "Em processamento.");
+                sqlCommand.Parameters.AddWithValue("@situacao", "Em processamento");
                 sqlCommand.Parameters.AddWithValue("@codCliente", codCliente);
 
                 sqlConnection.Open();

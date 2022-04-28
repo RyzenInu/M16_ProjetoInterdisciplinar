@@ -4,6 +4,9 @@
         window.document.title = "Loja";
     </script>
     <style>
+        .aspNetHidden{
+            display: none;
+        }
         body, html{
             scroll-snap-type: none!important;
         }

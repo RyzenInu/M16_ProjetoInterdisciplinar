@@ -68,7 +68,6 @@
             border: none;   
         }
         #contentPlaceHolder-wrapper{
-            padding-top: 70px;
             margin: 0!important;
         }
     </style>

@@ -33,18 +33,25 @@ namespace M16_ProjetoInterdisciplinar
             int numEncomenda = Convert.ToInt32(Request.QueryString["numEncomenda"].ToString());
 
             sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandText = $"update m16proj_tbl_encomendas set situacao = '{estado}', dataEntrega = '{dataEntrega}' where numEncomenda = {numEncomenda}";
+            if(String.IsNullOrWhiteSpace(dataEntrega) & estado != null)
+            {
+                sqlCommand.CommandText = $"update m16proj_tbl_encomendas set situacao = '{estado}' where numEncomenda = {numEncomenda}";
+            }
+            else
+            {
+                sqlCommand.CommandText = $"update m16proj_tbl_encomendas set situacao = '{estado}', dataEntrega = '{dataEntrega}' where numEncomenda = {numEncomenda}";
+            }
             
             sqlConnection.Open();
             try
             {
                 sqlCommand.ExecuteNonQuery();
-                Response.Redirect(Request.RawUrl);
             }
             catch (Exception ex)
             {
                 Response.Write(ex.Message);
             }
+            Response.Redirect("Dashboard_GerirEncomendas.aspx");
         }
     }
 }

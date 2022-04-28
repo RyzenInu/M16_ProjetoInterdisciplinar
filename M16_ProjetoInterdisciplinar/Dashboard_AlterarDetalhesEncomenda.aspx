@@ -119,6 +119,7 @@
         <div>
             Estado:
             <asp:DropDownList ID="ddl_estado" runat="server">
+                <asp:ListItem>Cancelada</asp:ListItem>
                 <asp:ListItem>Em processamento</asp:ListItem>
                 <asp:ListItem>Aguardando artigos</asp:ListItem>
                 <asp:ListItem>Enviada</asp:ListItem>
