@@ -28,32 +28,31 @@ namespace M16_ProjetoInterdisciplinar
 
             sqlCommand.Connection = sqlConnection;
 
-            sqlCommand.CommandText = $"select codCliente from m16proj_tbl_carrinho where codCliente = {codCliente}";
+            sqlCommand.CommandText = $"select codCliente from m16proj_tbl_carrinho where codCliente = {codCliente}"; //Verificar se o cliente tem algo no carrinho
             sqlConnection.Open();
             sqlDR = sqlCommand.ExecuteReader();
             if(sqlDR.Read())
             {
                 sqlDR.Close();
                 sqlConnection.Close();
+                sqlConnection.Open();
 
-                sqlCommand.CommandText = $"insert into m16proj_tbl_encomendas(dataEncomenda, situacao, codCliente) values(@dataEncomenda, @situacao, @codCliente)";
+                sqlCommand.CommandText = $"insert into m16proj_tbl_encomendas(dataEncomenda, situacao, codCliente) values(@dataEncomenda, @situacao, @codCliente)"; //inserir na tabela das encomendas
 
                 sqlCommand.Parameters.AddWithValue("@dataEncomenda", date);
                 sqlCommand.Parameters.AddWithValue("@situacao", "Em processamento");
                 sqlCommand.Parameters.AddWithValue("@codCliente", codCliente);
 
-                sqlConnection.Open();
                 try
                 {
                     sqlCommand.ExecuteNonQuery();
-                    sqlCommand.CommandText = $"select numEncomenda from m16proj_tbl_encomendas where codCliente = {codCliente}";
+                    sqlCommand.CommandText = $"select max(numEncomenda) from m16proj_tbl_encomendas where codCliente = {codCliente}"; //selecionar o numEncomenda do registo feito anteriormente na tabela das encomendas
                     sqlDR = sqlCommand.ExecuteReader();
                     if (sqlDR.Read())
                     {
-                        int num = Convert.ToInt32(sqlDR["numEncomenda"].ToString());
+                        string num = sqlDR.GetValue(0).ToString();
+                        sqlDR.Close();
                         sqlCommand.CommandText = $"insert into m16proj_tbl_detalhes_encomenda(numEncomenda, codProduto, qtdProduto) select '{num}', codProduto, qtdProduto from m16proj_tbl_carrinho where m16proj_tbl_carrinho.codCliente='{codCliente}'";
-                        sqlConnection.Close();
-                        sqlConnection.Open();
 
                         sqlCommand.ExecuteNonQuery();
                         sqlConnection.Close();
@@ -64,18 +63,21 @@ namespace M16_ProjetoInterdisciplinar
                         sqlConnection.Close();
                         sqlConnection.Open();
 
-                        sqlCommand.CommandText = $"update m16proj_tbl_encomendas set valorTotal = (select Sum(preco * qtdProduto) from m16proj_tbl_detalhes_encomenda, m16proj_tbl_produtos where m16proj_tbl_detalhes_encomenda.codProduto = m16proj_tbl_produtos.codProduto and m16proj_tbl_detalhes_encomenda.numEncomenda = '{num}') where m16proj_tbl_encomendas.numEncomenda = '{num}'";
+                        sqlCommand.CommandText = 
+                            $"update m16proj_tbl_encomendas set valorTotal = (select Sum(m16proj_tbl_produtos.preco * m16proj_tbl_detalhes_encomenda.qtdProduto) from m16proj_tbl_produtos, m16proj_tbl_detalhes_encomenda where m16proj_tbl_detalhes_encomenda.codProduto = m16proj_tbl_produtos.codProduto and m16proj_tbl_detalhes_encomenda.numEncomenda = '{num}') where m16proj_tbl_encomendas.numEncomenda = '{num}'";
                         sqlCommand.ExecuteNonQuery();
-
-                        Response.Write("<script>alert('Compra Finalizada com sucesso.')</script>");
-                        Response.Redirect("Loja_Encomendas.aspx");
+                        sqlConnection.Close();
                     }
                 }
                 catch (Exception ex)
                 {
                     Response.Write(ex.Message);
                 }
-                Response.Redirect("Loja_Encomendas");
+                finally
+                {
+                    Response.Write("<script>alert('Compra Finalizada com sucesso.')</script>");
+                    Response.Redirect($"Loja_Encomendas.aspx");
+                }
             }
             else
             {

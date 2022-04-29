@@ -1,28 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_Loja.Master" AutoEventWireup="true" CodeBehind="Loja_Carrinho.aspx.cs" Inherits="M16_ProjetoInterdisciplinar.Loja_Carrinho" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        header{
-            position: fixed;
+        .aspNetHidden{
+            display: none;
         }
         #form1{
-            display: flex!important;
-            flex-direction: column!important;
-        }
-        #form1, main{
             justify-content: center;
-            padding: 30px;
         }
-        #form1, main, #contentPlaceHolder-wrapper{
-            height: fit-content;
-        }
-        #contentPlaceHolder-wrapper{
-            margin-top: 70px;
-            max-width: 100%;
-            overflow: hidden;
-        }
-        form div{
+        form div:nth-child(4){
             min-width: 90%;
-            padding: 10px;
+        }
+        header{
+            max-width: 100%;
         }
         #GridView1{
             width: 100%;
@@ -46,7 +35,6 @@
         }
         #GridView1 tr, #GridView1 td{
             max-height: 20vh;
-            overflow: hidden;
             border: none;
         }
         #GridView1 tr td:first-child{
