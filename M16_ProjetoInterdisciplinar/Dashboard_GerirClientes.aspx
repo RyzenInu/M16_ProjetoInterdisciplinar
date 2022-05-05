@@ -42,14 +42,10 @@
     <h2>Gerir Clientes</h2>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" ClientIDMode="Static" DataKeyNames="codCliente" DataSourceID="SqlDataSource1">
         <Columns>
-            <asp:BoundField DataField="codCliente" HeaderText="Nº" InsertVisible="False" ReadOnly="True" SortExpression="codCliente" />
-            <asp:BoundField DataField="nome" HeaderText="Cliente" SortExpression="nome" />
+            <asp:BoundField DataField="codCliente" HeaderText="Nº" SortExpression="codCliente" InsertVisible="False" ReadOnly="True" />
+            <asp:BoundField DataField="nome" HeaderText="Nome" SortExpression="nome" />
             <asp:BoundField DataField="email" HeaderText="E-mail" SortExpression="email" />
-            <asp:BoundField DataField="morada" HeaderText="Morada" SortExpression="morada" />
-            <asp:BoundField DataField="nif" HeaderText="NIF" SortExpression="nif" />
-            <asp:BoundField DataField="dataNascimento" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Data de Nascimento" SortExpression="dataNascimento" />
-            <asp:BoundField DataField="sexo" HeaderText="Sexo" SortExpression="sexo" />
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:L2031ConnectionString %>" SelectCommand="SELECT [nome], [email], [codCliente], [morada], [nif], [dataNascimento], [sexo] FROM [m16proj_tbl_cliente]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:L2031ConnectionString %>" SelectCommand="SELECT [nome], [email], [codCliente] FROM [m16proj_tbl_cliente]"></asp:SqlDataSource>
 </asp:Content>
